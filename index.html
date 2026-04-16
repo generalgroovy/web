@@ -18,7 +18,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    max-width: 1000px;
+    max-width: 1100px;
   }
 
   ul {
@@ -27,7 +27,7 @@
   }
 
   li {
-    margin: 5px 0;
+    margin: 4px 0;
   }
 
   .row {
@@ -42,9 +42,9 @@
   }
 
   .arrow {
-    width: 20px;
-    display: inline-block;
+    width: 22px;
     text-align: center;
+    flex-shrink: 0;
   }
 
   .text {
@@ -53,22 +53,21 @@
 
   .nested {
     display: none;
-    margin-left: 20px;
+    margin-left: 22px;
+    border-left: 1px solid #eee;
+    padding-left: 10px;
   }
 
   .open > .nested {
     display: block;
   }
 
-  /* FONT HIERARCHY */
-  .depth-1 .text {
-    font-size: 20px;
-    font-weight: bold;
-  }
-
+  /* Depth styling */
+  .depth-1 .text { font-size: 20px; font-weight: bold; }
   .depth-2 { font-size: 16px; font-weight: 600; }
-  .depth-3 { font-size: 14px; color: #333; }
-  .depth-4 { font-size: 13px; color: #666; }
+  .depth-3 { font-size: 14px; }
+  .depth-4 { font-size: 13px; color: #444; }
+  .depth-5 { font-size: 12px; color: #666; }
 
 </style>
 </head>
@@ -80,124 +79,201 @@
 
 <div class="container">
 
-  <!-- LEFT COLUMN -->
-  <div>
-    <ul class="depth-1">
+<!-- LEFT COLUMN -->
+<div>
+<ul class="depth-1">
 
-      <!-- PROFILE -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Profile</span>
-        </div>
-        <ul class="nested depth-2">
+<!-- PROFILE -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Profile</span>
+</div>
 
-          <li class="static">
-            <span class="arrow">•</span>
-            <span class="text">14+ years consulting & interim management</span>
-          </li>
+<ul class="nested depth-2">
 
-          <li class="static">
-            <span class="arrow">•</span>
-            <span class="text">Industrial engineer</span>
-          </li>
+<li class="static"><span class="arrow">•</span><span class="text">14+ years consulting & interim management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Industrial engineer</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Certified project manager</span></li>
 
-          <li class="static">
-            <span class="arrow">•</span>
-            <span class="text">Certified project manager</span>
-          </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">International experience</span>
+</div>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">International experience</span>
-            </div>
-            <ul class="nested depth-3">
-              <li class="static"><span class="arrow">•</span><span class="text">USA</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">EU</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">Eastern Europe</span></li>
-            </ul>
-          </li>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">USA</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">EU</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Eastern Europe</span></li>
+</ul>
+</li>
 
-          <li class="static">
-            <span class="arrow">•</span>
-            <span class="text">Member: Turnaround Management Association</span>
-          </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Core strengths</span>
+</div>
 
-        </ul>
-      </li>
+<ul class="nested depth-3">
 
-      <!-- PROJECT EXPERIENCE -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Project Experience</span>
-        </div>
-        <ul class="nested depth-2">
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Operational Excellence</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Process optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Lean / KAIZEN</span></li>
+</ul>
+</li>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">2024 – Metal Industry (~€50M)</span>
-            </div>
-            <ul class="nested depth-3">
-              <li class="static"><span class="arrow">•</span><span class="text">IST/SOLL analysis</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">Quick wins</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">ERP & SCM implementation</span></li>
-            </ul>
-          </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Supply Chain</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Procurement strategy</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Supplier optimization</span></li>
+</ul>
+</li>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">Major Clients</span>
-            </div>
-            <ul class="nested depth-3">
-              <li class="static"><span class="arrow">•</span><span class="text">Coca-Cola</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">PepsiCo</span></li>
-              <li class="static"><span class="arrow">•</span><span class="text">General Motors</span></li>
-            </ul>
-          </li>
+</ul>
+</li>
 
-        </ul>
-      </li>
+</ul>
+</li>
 
-    </ul>
-  </div>
+<!-- PROJECT EXPERIENCE -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Project Experience</span>
+</div>
 
-  <!-- RIGHT COLUMN -->
-  <div>
-    <ul class="depth-1">
+<ul class="nested depth-2">
 
-      <!-- INDUSTRIES -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Industries</span>
-        </div>
-        <ul class="nested depth-2">
-          <li class="static"><span class="arrow">•</span><span class="text">Mechanical & plant engineering</span></li>
-          <li class="static"><span class="arrow">•</span><span class="text">Food & beverage</span></li>
-          <li class="static"><span class="arrow">•</span><span class="text">Pharma & biotech</span></li>
-          <li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
-        </ul>
-      </li>
+<!-- PROJECT 1 -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">2024 – Metal Industry (~€50M, EU)</span>
+</div>
 
-      <!-- CONTACT -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Contact</span>
-        </div>
-        <ul class="nested depth-2">
-          <li class="static"><span class="arrow">•</span><span class="text">Regensburg, Germany</span></li>
-          <li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
-          <li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
-        </ul>
-      </li>
+<ul class="nested depth-3">
 
-    </ul>
-  </div>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Situation</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Low profitability</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Inefficient processes</span></li>
+</ul>
+</li>
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Actions</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">IST/SOLL analysis</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP implementation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Cost reduction program</span></li>
+</ul>
+</li>
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Results</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Efficiency increase</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Improved margins</span></li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+<!-- PROJECT 2 -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">DMK Baby Food (~€5B)</span>
+</div>
+
+<ul class="nested depth-3">
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Focus</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Supplier management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Contract negotiation</span></li>
+</ul>
+</li>
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Impact</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Stabilized supply chain</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Cost savings</span></li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div>
+<ul class="depth-1">
+
+<!-- INDUSTRIES -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Industries</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Mechanical & plant engineering</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Food & beverage</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Pharma & biotech</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
+</ul>
+</li>
+
+<!-- CONTACT -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Contact</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Regensburg, Germany</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">www.natalialee.com</span></li>
+</ul>
+</li>
+
+</ul>
+</div>
 
 </div>
 
