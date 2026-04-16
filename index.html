@@ -8,51 +8,52 @@
   body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background: #fff;
-    color: #111;
     max-width: 900px;
+    color: #111;
   }
 
   h1 {
     font-size: 36px;
-    margin-bottom: 10px;
   }
 
   h2 {
     font-size: 14px;
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .section {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
   }
 
   .title {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-  }
-
-  .content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    margin-left: 15px;
-  }
-
-  .section:hover .content {
-    opacity: 1;
-    max-height: 1000px;
+    padding: 5px 0;
   }
 
   ul {
+    list-style-type: disc;
     padding-left: 20px;
   }
 
   li {
-    margin-bottom: 5px;
+    margin: 4px 0;
+    cursor: pointer;
+  }
+
+  .nested {
+    display: none;
+    margin-left: 15px;
+  }
+
+  .open > .nested {
+    display: block;
+  }
+
+  .title:hover, li:hover {
+    color: #555;
   }
 </style>
 </head>
@@ -63,160 +64,225 @@
 <h2>Business Consulting & Interim Management</h2>
 
 <div class="section">
-  <div class="title">Profile</div>
-  <div class="content">
-    <ul>
-      <li>14+ years consulting & interim management</li>
-      <li>Industrial engineer</li>
-      <li>Certified project manager</li>
-      <li>International experience (USA, EU, Eastern Europe)</li>
-      <li>Member: Turnaround Management Association (USA)</li>
-      <li>Results-driven implementation & transformation</li>
-      <li>Optimization of product portfolio, costs, ERP</li>
-      <li>Improved quality, delivery reliability & profitability</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Profile</div>
+  <ul class="nested">
+    <li>14+ years consulting & interim management</li>
+    <li>Industrial engineer</li>
+    <li>Certified project manager</li>
+    <li>International experience
+      <ul class="nested">
+        <li>USA</li>
+        <li>EU</li>
+        <li>Eastern Europe</li>
+      </ul>
+    </li>
+    <li>Member: Turnaround Management Association (USA)</li>
+    <li>Results-driven implementation
+      <ul class="nested">
+        <li>Product portfolio optimization</li>
+        <li>Cost reduction</li>
+        <li>ERP optimization</li>
+        <li>Quality & delivery improvement</li>
+        <li>Profitability increase</li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Focus Areas</div>
-  <div class="content">
-    <ul>
-      <li>Operational Excellence</li>
-      <li>Digitalization</li>
-      <li>SCM Transformation</li>
-      <li>Procurement / Purchasing</li>
-      <li>Value chain optimization</li>
-      <li>Project management</li>
-      <li>Corporate culture & change</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Focus Areas</div>
+  <ul class="nested">
+    <li>Operational Excellence</li>
+    <li>Digitalization</li>
+    <li>SCM Transformation</li>
+    <li>Procurement / Purchasing</li>
+    <li>Value Chain Optimization</li>
+    <li>Project Management</li>
+    <li>Corporate Culture & Change</li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Core Competencies</div>
-  <div class="content">
-    <ul>
-      <li>Process analysis & optimization</li>
-      <li>ERP & CRM implementation</li>
-      <li>Supplier selection & negotiations</li>
-      <li>Strategic sourcing</li>
-      <li>Turnaround & crisis management</li>
-      <li>Risk & potential analysis</li>
-      <li>KPI & working capital optimization</li>
-      <li>Cross-functional integration</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Project Experience</div>
+  <ul class="nested">
+
+    <li>2024 – Metal Industry (~€50M)
+      <ul class="nested">
+        <li>IST/SOLL analysis across all departments</li>
+        <li>Quick wins & prioritization</li>
+        <li>Sales, procurement, production optimization</li>
+        <li>ERP & SCM process implementation</li>
+        <li>Transformation & crisis management</li>
+      </ul>
+    </li>
+
+    <li>2023 – Biotech FMCG (~€25M)
+      <ul class="nested">
+        <li>Supplier selection for new technology</li>
+        <li>Risk & potential analysis</li>
+        <li>Turnkey solution evaluation</li>
+        <li>Tender & award process management</li>
+      </ul>
+    </li>
+
+    <li>2023 – Food Startup
+      <ul class="nested">
+        <li>Procurement consolidation</li>
+        <li>Software selection & configuration</li>
+        <li>SCM process optimization</li>
+        <li>Supplier & sourcing strategy</li>
+      </ul>
+    </li>
+
+    <li>2022–2023 – DMK Baby Food (~€5B)
+      <ul class="nested">
+        <li>Supplier management</li>
+        <li>Idea-to-market & make-or-buy</li>
+        <li>Contract negotiations</li>
+        <li>Supply chain stabilization</li>
+      </ul>
+    </li>
+
+    <li>2021–2022 – Special Machinery (~€80M)
+      <ul class="nested">
+        <li>Turnaround & risk management</li>
+        <li>Process optimization</li>
+        <li>Immediate action programs</li>
+      </ul>
+    </li>
+
+    <li>2021 – Pharma (~€2B)
+      <ul class="nested">
+        <li>Workshops & transformation</li>
+        <li>Spare parts optimization</li>
+        <li>P&L impact analysis</li>
+        <li>Roadmap development</li>
+      </ul>
+    </li>
+
+    <li>2020–2021 – FMCG (~€80M)
+      <ul class="nested">
+        <li>CRM & ERP integration</li>
+        <li>Sales & SCM optimization</li>
+        <li>Working capital optimization</li>
+        <li>KPI development</li>
+      </ul>
+    </li>
+
+    <li>Earlier Projects
+      <ul class="nested">
+        <li>Coca-Cola (€100M plant project)</li>
+        <li>Pentair Südmo (turnkey dairy plant)</li>
+        <li>PepsiCo (CO₂ recovery system sourcing)</li>
+        <li>Biogena (production optimization)</li>
+        <li>Ecovis / Polymagnet (turnaround)</li>
+        <li>General Motors (KAIZEN, +50% productivity)</li>
+      </ul>
+    </li>
+
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Project Experience (Selected)</div>
-  <div class="content">
-    <ul>
-      <li>Full company IST/SOLL analysis & transformation programs</li>
-      <li>SCM process definition & implementation</li>
-      <li>Supplier evaluation & turnkey technology sourcing</li>
-      <li>Procurement software selection & rollout</li>
-      <li>CRM build & ERP integration</li>
-      <li>Idea-to-market & make-or-buy strategies</li>
-      <li>Turnaround & risk management for industrial projects</li>
-      <li>Contract & price negotiations with suppliers</li>
-      <li>Production, logistics & supply chain optimization</li>
-      <li>Working capital and KPI system development</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Industries</div>
+  <ul class="nested">
+    <li>Mechanical & Plant Engineering</li>
+    <li>Food & Beverage</li>
+    <li>Pharma & Biotech</li>
+    <li>FMCG</li>
+    <li>Textile</li>
+    <li>Agriculture</li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Major Clients & Projects</div>
-  <div class="content">
-    <ul>
-      <li>Coca-Cola – new production site (€100M project)</li>
-      <li>Pentair Südmo – turnkey dairy production plant</li>
-      <li>PepsiCo – supplier audits & CO₂ recovery system</li>
-      <li>DMK Baby Food – supplier & SCM optimization</li>
-      <li>Krones AG / Inc. – global plant engineering projects</li>
-      <li>Biogena – production & value chain optimization</li>
-      <li>Ecovis / Polymagnet – turnaround & restructuring</li>
-      <li>General Motors – production efficiency & KAIZEN</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Professional Experience</div>
+  <ul class="nested">
+    <li>Krones AG / Inc.
+      <ul class="nested">
+        <li>Turnkey plant project management</li>
+        <li>Key accounts: Coca-Cola, PepsiCo, Unilever, Clorox</li>
+      </ul>
+    </li>
+    <li>Ecovis / Polymagnet
+      <ul class="nested">
+        <li>Interim CEO</li>
+        <li>Turnaround & restructuring</li>
+      </ul>
+    </li>
+    <li>Agrowelt
+      <ul class="nested">
+        <li>Market & investment analysis</li>
+      </ul>
+    </li>
+    <li>Händlmaier
+      <ul class="nested">
+        <li>Procurement strategy</li>
+        <li>Supplier negotiations</li>
+      </ul>
+    </li>
+    <li>General Motors
+      <ul class="nested">
+        <li>Production optimization</li>
+        <li>KAIZEN implementation (+50%)</li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Industries</div>
-  <div class="content">
-    <ul>
-      <li>Mechanical & plant engineering</li>
-      <li>Food & beverage</li>
-      <li>Pharma & biotech</li>
-      <li>FMCG</li>
-      <li>Textile</li>
-      <li>Agriculture</li>
-      <li>Manufacturing & industrial suppliers</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Education</div>
+  <ul class="nested">
+    <li>Industrial Engineering Degree</li>
+    <li>Project Management Certification (Krones AG)</li>
+    <li>Executive MBA Course – Cardinal Stritch University (USA)</li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Professional Experience</div>
-  <div class="content">
-    <ul>
-      <li>Krones AG / Krones Inc. – project management for turnkey plants</li>
-      <li>Agrowelt – market & investment analysis</li>
-      <li>Händlmaier – procurement strategy & supplier negotiations</li>
-      <li>Ecovis – interim CEO, turnaround management</li>
-      <li>General Motors – production optimization (KAIZEN)</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Skills</div>
+  <ul class="nested">
+    <li>Analytical</li>
+    <li>Solution-oriented</li>
+    <li>Strong leadership</li>
+    <li>Communicative</li>
+    <li>Team player</li>
+    <li>Conflict capable</li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Education & Training</div>
-  <div class="content">
-    <ul>
-      <li>Industrial Engineering Degree</li>
-      <li>Project Management Certification (Krones AG)</li>
-      <li>Executive MBA Course (Cardinal Stritch University, USA)</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Languages</div>
+  <ul class="nested">
+    <li>English</li>
+    <li>German</li>
+    <li>Russian</li>
+    <li>Ukrainian</li>
+  </ul>
 </div>
 
 <div class="section">
-  <div class="title">Skills</div>
-  <div class="content">
-    <ul>
-      <li>Analytical & solution-oriented</li>
-      <li>Strong leadership & execution</li>
-      <li>Communicative & persuasive</li>
-      <li>Team player & conflict capable</li>
-    </ul>
-  </div>
+  <div class="title" onclick="toggle(this)">Contact</div>
+  <ul class="nested">
+    <li>Regensburg, Germany</li>
+    <li>Email: consulting@natalialee.com</li>
+    <li>Phone: +49 170 7679985</li>
+    <li>Web: www.natalialee.com</li>
+  </ul>
 </div>
 
-<div class="section">
-  <div class="title">Languages</div>
-  <div class="content">
-    <ul>
-      <li>English</li>
-      <li>German</li>
-      <li>Russian</li>
-      <li>Ukrainian</li>
-    </ul>
-  </div>
-</div>
+<script>
+function toggle(element) {
+  element.parentElement.classList.toggle("open");
+}
 
-<div class="section">
-  <div class="title">Contact</div>
-  <div class="content">
-    <ul>
-      <li>Regensburg, Germany</li>
-      <li>Email: consulting@natalialee.com</li>
-      <li>Phone: +49 170 7679985</li>
-      <li>Web: www.natalialee.com</li>
-    </ul>
-  </div>
-</div>
+document.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", function(e) {
+    e.stopPropagation();
+    this.classList.toggle("open");
+  });
+});
+</script>
 
 </body>
 </html>
