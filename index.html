@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Natalia Lee – Consulting Profile</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -6,10 +12,20 @@
     color: #111;
   }
 
-  h1 { font-size: 36px; margin-bottom: 5px; }
-  h2 { font-size: 14px; color: #666; margin-bottom: 30px; }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+  }
 
-  .section { margin-bottom: 15px; }
+  h2 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+
+  .section {
+    margin-bottom: 15px;
+  }
 
   .title {
     font-size: 22px;
@@ -21,36 +37,28 @@
 
   ul {
     list-style: none;
-    padding-left: 0;
+    padding-left: 20px;
     margin-top: 5px;
   }
 
   li {
+    cursor: pointer;
     margin: 4px 0;
-  }
-
-  .row {
     display: flex;
     align-items: center;
-    cursor: pointer;
-  }
-
-  .arrow {
-    width: 20px;
-    flex-shrink: 0;
-  }
-
-  .text {
-    flex: 1;
   }
 
   .nested {
     display: none;
-    margin-left: 20px; /* aligns under text, not arrow */
   }
 
   .open > .nested {
     display: block;
+  }
+
+  .arrow {
+    width: 20px;
+    display: inline-block;
   }
 
   /* Depth styling */
@@ -58,4 +66,133 @@
   .depth-2 { font-size: 16px; color: #222; }
   .depth-3 { font-size: 14px; color: #444; }
   .depth-4 { font-size: 13px; color: #666; }
+
 </style>
+</head>
+
+<body>
+
+<h1>Natalia Lee</h1>
+<h2>Business Consulting & Interim Management</h2>
+
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Profile
+  </div>
+  <ul class="nested depth-1">
+    <li>14+ years consulting & interim management</li>
+    <li>Industrial engineer</li>
+    <li>Certified project manager</li>
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> International experience
+      <ul class="nested depth-2">
+        <li>USA</li>
+        <li>EU</li>
+        <li>Eastern Europe</li>
+      </ul>
+    </li>
+
+    <li>Member: Turnaround Management Association</li>
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> Results-driven implementation
+      <ul class="nested depth-2">
+        <li>Product portfolio optimization</li>
+        <li>Cost reduction</li>
+        <li>ERP optimization</li>
+        <li>Quality improvement</li>
+        <li>Profitability increase</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Project Experience
+  </div>
+  <ul class="nested depth-1">
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> 2024 – Metal Industry (~€50M)
+      <ul class="nested depth-2">
+        <li>IST/SOLL analysis</li>
+        <li>Quick wins & prioritization</li>
+        <li>ERP & SCM implementation</li>
+        <li>Transformation & crisis management</li>
+      </ul>
+    </li>
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> 2023 – Biotech FMCG
+      <ul class="nested depth-2">
+        <li>Supplier selection</li>
+        <li>Risk analysis</li>
+        <li>Turnkey evaluation</li>
+      </ul>
+    </li>
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> Major Clients
+      <ul class="nested depth-2">
+        <li>Coca-Cola (€100M plant)</li>
+        <li>Pentair Südmo (turnkey dairy plant)</li>
+        <li>PepsiCo (CO₂ recovery)</li>
+        <li>General Motors (KAIZEN +50%)</li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Industries
+  </div>
+  <ul class="nested depth-1">
+    <li>Mechanical & plant engineering</li>
+    <li>Food & beverage</li>
+    <li>Pharma & biotech</li>
+    <li>FMCG</li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Contact
+  </div>
+  <ul class="nested depth-1">
+    <li>Regensburg, Germany</li>
+    <li>consulting@natalialee.com</li>
+    <li>+49 170 7679985</li>
+  </ul>
+</div>
+
+<script>
+function toggle(element) {
+  const parent = element.parentElement;
+  parent.classList.toggle("open");
+
+  const arrow = element.querySelector(".arrow");
+  if (arrow) {
+    arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
+  }
+}
+
+// Handle nested li clicks
+document.querySelectorAll("li").forEach(item => {
+  item.addEventListener("click", function(e) {
+    e.stopPropagation();
+
+    const arrow = this.querySelector(".arrow");
+    if (!arrow) return;
+
+    this.classList.toggle("open");
+    arrow.textContent = this.classList.contains("open") ? "▼" : "▶";
+  });
+});
+</script>
+
+</body>
+</html>
