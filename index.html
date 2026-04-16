@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Natalia Lee – Consulting Profile</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -9,7 +15,7 @@
   h1 { font-size: 36px; margin-bottom: 5px; }
   h2 { font-size: 14px; color: #666; margin-bottom: 30px; }
 
-  .section { margin-bottom: 15px; }
+  .section { margin-bottom: 20px; }
 
   .title {
     font-size: 22px;
@@ -46,7 +52,7 @@
 
   .nested {
     display: none;
-    margin-left: 20px; /* aligns under text, not arrow */
+    margin-left: 20px;
   }
 
   .open > .nested {
@@ -59,3 +65,217 @@
   .depth-3 { font-size: 14px; color: #444; }
   .depth-4 { font-size: 13px; color: #666; }
 </style>
+</head>
+
+<body>
+
+<h1>Natalia Lee</h1>
+<h2>Business Consulting & Interim Management</h2>
+
+<!-- PROFILE -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Profile
+  </div>
+  <ul class="nested depth-1">
+
+    <li>14+ years consulting & interim management</li>
+    <li>Industrial engineer</li>
+    <li>Certified project manager</li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">International experience</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>USA</li>
+        <li>EU</li>
+        <li>Eastern Europe</li>
+      </ul>
+    </li>
+
+    <li>Member: Turnaround Management Association</li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">Results-driven implementation</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>Product portfolio optimization</li>
+        <li>Cost reduction</li>
+        <li>ERP optimization</li>
+        <li>Quality improvement</li>
+        <li>Delivery reliability</li>
+        <li>Profitability increase</li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<!-- FOCUS -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Focus Areas
+  </div>
+  <ul class="nested depth-1">
+    <li>Operational Excellence</li>
+    <li>Digitalization</li>
+    <li>SCM Transformation</li>
+    <li>Procurement / Purchasing</li>
+    <li>Value Chain Optimization</li>
+    <li>Project Management</li>
+    <li>Corporate Culture & Change</li>
+  </ul>
+</div>
+
+<!-- PROJECTS -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Project Experience
+  </div>
+  <ul class="nested depth-1">
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">2024 – Metal Industry (~€50M, EU)</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>IST/SOLL analysis across all departments</li>
+        <li>Quick wins & prioritization</li>
+        <li>Sales, procurement, production optimization</li>
+        <li>ERP & SCM implementation</li>
+        <li>Transformation & crisis management</li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">2023 – Biotech FMCG (~€25M)</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>Supplier selection for new technology</li>
+        <li>Risk & potential analysis</li>
+        <li>Turnkey evaluation</li>
+        <li>Tender & award process</li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">2023 – Food Startup</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>Procurement consolidation</li>
+        <li>Software selection & configuration</li>
+        <li>SCM process optimization</li>
+        <li>Strategic sourcing</li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">2022–2023 – DMK Baby Food (~€5B)</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>Supplier management</li>
+        <li>Idea-to-market & make-or-buy</li>
+        <li>Contract negotiations</li>
+        <li>Supply chain stabilization</li>
+      </ul>
+    </li>
+
+    <li>
+      <div class="row" onclick="toggle(this)">
+        <span class="arrow">▶</span>
+        <span class="text">Earlier Key Projects</span>
+      </div>
+      <ul class="nested depth-2">
+        <li>Coca-Cola – €100M plant project</li>
+        <li>Pentair Südmo – turnkey dairy plant</li>
+        <li>PepsiCo – CO₂ recovery system sourcing</li>
+        <li>Biogena – production optimization</li>
+        <li>Ecovis / Polymagnet – turnaround</li>
+        <li>General Motors – KAIZEN (+50%)</li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+
+<!-- INDUSTRIES -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Industries
+  </div>
+  <ul class="nested depth-1">
+    <li>Mechanical & Plant Engineering</li>
+    <li>Food & Beverage</li>
+    <li>Pharma & Biotech</li>
+    <li>FMCG</li>
+    <li>Textile</li>
+    <li>Agriculture</li>
+  </ul>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Skills
+  </div>
+  <ul class="nested depth-1">
+    <li>Analytical</li>
+    <li>Solution-oriented</li>
+    <li>Leadership</li>
+    <li>Communicative</li>
+    <li>Team player</li>
+    <li>Conflict capable</li>
+  </ul>
+</div>
+
+<!-- LANGUAGES -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Languages
+  </div>
+  <ul class="nested depth-1">
+    <li>English</li>
+    <li>German</li>
+    <li>Russian</li>
+    <li>Ukrainian</li>
+  </ul>
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Contact
+  </div>
+  <ul class="nested depth-1">
+    <li>Regensburg, Germany</li>
+    <li>Email: consulting@natalialee.com</li>
+    <li>Phone: +49 170 7679985</li>
+    <li>Web: www.natalialee.com</li>
+  </ul>
+</div>
+
+<script>
+function toggle(element) {
+  const parent = element.parentElement;
+  parent.classList.toggle("open");
+
+  const arrow = element.querySelector(".arrow");
+  if (arrow) {
+    arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
+  }
+}
+</script>
+
+</body>
+</html>
