@@ -1,29 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Natalia Lee – Consulting Profile</title>
-
 <style>
   body {
     font-family: Arial, sans-serif;
     margin: 40px;
+    max-width: 900px;
     color: #111;
   }
 
   h1 { font-size: 36px; margin-bottom: 5px; }
   h2 { font-size: 14px; color: #666; margin-bottom: 30px; }
 
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1100px;
+  .section { margin-bottom: 15px; }
+
+  .title {
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
   }
 
   ul {
     list-style: none;
     padding-left: 0;
+    margin-top: 5px;
   }
 
   li {
@@ -36,14 +35,8 @@
     cursor: pointer;
   }
 
-  .static {
-    display: flex;
-    align-items: center;
-  }
-
   .arrow {
-    width: 22px;
-    text-align: center;
+    width: 20px;
     flex-shrink: 0;
   }
 
@@ -53,9 +46,7 @@
 
   .nested {
     display: none;
-    margin-left: 22px;
-    border-left: 1px solid #eee;
-    padding-left: 10px;
+    margin-left: 20px; /* aligns under text, not arrow */
   }
 
   .open > .nested {
@@ -63,231 +54,8 @@
   }
 
   /* Depth styling */
-  .depth-1 .text { font-size: 20px; font-weight: bold; }
-  .depth-2 { font-size: 16px; font-weight: 600; }
-  .depth-3 { font-size: 14px; }
-  .depth-4 { font-size: 13px; color: #444; }
-  .depth-5 { font-size: 12px; color: #666; }
-
+  .depth-1 { font-size: 18px; font-weight: 600; }
+  .depth-2 { font-size: 16px; color: #222; }
+  .depth-3 { font-size: 14px; color: #444; }
+  .depth-4 { font-size: 13px; color: #666; }
 </style>
-</head>
-
-<body>
-
-<h1>Natalia Lee</h1>
-<h2>Business Consulting & Interim Management</h2>
-
-<div class="container">
-
-<!-- LEFT COLUMN -->
-<div>
-<ul class="depth-1">
-
-<!-- PROFILE -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Profile</span>
-</div>
-
-<ul class="nested depth-2">
-
-<li class="static"><span class="arrow">•</span><span class="text">14+ years consulting & interim management</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Industrial engineer</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Certified project manager</span></li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">International experience</span>
-</div>
-
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span><span class="text">USA</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">EU</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Eastern Europe</span></li>
-</ul>
-</li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Core strengths</span>
-</div>
-
-<ul class="nested depth-3">
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Operational Excellence</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Process optimization</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Lean / KAIZEN</span></li>
-</ul>
-</li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Supply Chain</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Procurement strategy</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Supplier optimization</span></li>
-</ul>
-</li>
-
-</ul>
-</li>
-
-</ul>
-</li>
-
-<!-- PROJECT EXPERIENCE -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Project Experience</span>
-</div>
-
-<ul class="nested depth-2">
-
-<!-- PROJECT 1 -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">2024 – Metal Industry (~€50M, EU)</span>
-</div>
-
-<ul class="nested depth-3">
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Situation</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Low profitability</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Inefficient processes</span></li>
-</ul>
-</li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Actions</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">IST/SOLL analysis</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">ERP implementation</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Cost reduction program</span></li>
-</ul>
-</li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Results</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Efficiency increase</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Improved margins</span></li>
-</ul>
-</li>
-
-</ul>
-</li>
-
-<!-- PROJECT 2 -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">DMK Baby Food (~€5B)</span>
-</div>
-
-<ul class="nested depth-3">
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Focus</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Supplier management</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Contract negotiation</span></li>
-</ul>
-</li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Impact</span>
-</div>
-<ul class="nested depth-4">
-<li class="static"><span class="arrow">•</span><span class="text">Stabilized supply chain</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Cost savings</span></li>
-</ul>
-</li>
-
-</ul>
-</li>
-
-</ul>
-</li>
-
-</ul>
-</div>
-
-<!-- RIGHT COLUMN -->
-<div>
-<ul class="depth-1">
-
-<!-- INDUSTRIES -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Industries</span>
-</div>
-<ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span><span class="text">Mechanical & plant engineering</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Food & beverage</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Pharma & biotech</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
-</ul>
-</li>
-
-<!-- CONTACT -->
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Contact</span>
-</div>
-<ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span><span class="text">Regensburg, Germany</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">www.natalialee.com</span></li>
-</ul>
-</li>
-
-</ul>
-</div>
-
-</div>
-
-<script>
-function toggle(el) {
-  const parent = el.parentElement;
-  parent.classList.toggle("open");
-
-  const arrow = el.querySelector(".arrow");
-  if (arrow) {
-    arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
-  }
-}
-</script>
-
-</body>
-</html>
