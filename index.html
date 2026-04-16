@@ -7,21 +7,24 @@
 
 <style>
 :root {
+  --bg: #e8f8f6;
   --primary: #2bbbad;
-  --light: #e8f8f6;
-  --text: #1a1a1a;
-  --muted: #666;
+  --text-dark: #0f2f2d;
+  --text-mid: #2f5f5c;
+  --text-light: #5f8f8c;
+  --text-faint: #8fbfbc;
 }
 
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   margin: 20px;
-  color: var(--text);
+  background: var(--bg);
+  color: var(--text-dark);
 }
 
 /* HEADER */
 h1 { font-size: 34px; margin-bottom: 5px; }
-h2 { font-size: 14px; color: var(--muted); margin-bottom: 25px; }
+h2 { font-size: 14px; color: var(--text-mid); margin-bottom: 25px; }
 
 /* LAYOUT */
 .container {
@@ -30,21 +33,15 @@ h2 { font-size: 14px; color: var(--muted); margin-bottom: 25px; }
   gap: 40px;
 }
 
-/* STICKY LEFT */
 .left {
   position: sticky;
   top: 20px;
   align-self: start;
 }
 
-/* MOBILE */
 @media (max-width: 800px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-  .left {
-    position: static;
-  }
+  .container { grid-template-columns: 1fr; }
+  .left { position: static; }
 }
 
 /* TREE */
@@ -63,7 +60,7 @@ li { margin: 4px 0; }
 }
 
 .row:hover {
-  background: var(--light);
+  background: rgba(43,187,173,0.15);
 }
 
 .arrow {
@@ -82,7 +79,7 @@ li { margin: 4px 0; }
   max-height: 0;
   overflow: hidden;
   margin-left: 22px;
-  border-left: 2px solid var(--light);
+  border-left: 2px solid rgba(43,187,173,0.3);
   padding-left: 10px;
   transition: max-height 0.35s ease;
 }
@@ -91,15 +88,17 @@ li { margin: 4px 0; }
   max-height: 1000px;
 }
 
-/* DEPTH */
+/* DEPTH COLOR SYSTEM */
 .depth-1 .text {
   font-size: 20px;
   font-weight: bold;
   color: var(--primary);
 }
-.depth-2 { font-size: 16px; font-weight: 600; }
-.depth-3 { font-size: 14px; }
-.depth-4 { font-size: 13px; color: #444; }
+
+.depth-2 .text { color: var(--text-dark); font-weight: 600; }
+.depth-3 .text { color: var(--text-mid); }
+.depth-4 .text { color: var(--text-light); }
+.depth-5 .text { color: var(--text-faint); }
 
 /* TIMELINE */
 .timeline {
@@ -143,37 +142,22 @@ li { margin: 4px 0; }
 
 <div class="container">
 
-<!-- LEFT COLUMN -->
+<!-- LEFT -->
 <div class="left">
 <ul class="depth-1">
 
-<!-- PROFILE -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
 <span class="text">Profile</span>
 </div>
-
 <ul class="nested depth-2">
 <li class="static"><span class="arrow">•</span><span class="text">14+ years Consulting</span></li>
 <li class="static"><span class="arrow">•</span><span class="text">Industrial Engineer</span></li>
 <li class="static"><span class="arrow">•</span><span class="text">Certified Project Manager</span></li>
-
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Impact</span>
-</div>
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span><span class="text">Cost reduction</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">ERP optimization</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Profitability increase</span></li>
-</ul>
-</li>
 </ul>
 </li>
 
-<!-- PROJECT EXPERIENCE (TIMELINE) -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
@@ -186,11 +170,11 @@ li { margin: 4px 0; }
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
-<span class="text">2024 Metal Industry (€50M)</span>
+<span class="text">2024 Metal Industry</span>
 </div>
 <ul class="nested depth-3">
 <li class="static"><span class="arrow">•</span><span class="text">Transformation</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">ERP + SCM</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP & SCM</span></li>
 </ul>
 </li>
 </div>
@@ -199,25 +183,10 @@ li { margin: 4px 0; }
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
-<span class="text">2022–23 DMK Baby (€5B)</span>
+<span class="text">DMK Baby Food</span>
 </div>
 <ul class="nested depth-3">
 <li class="static"><span class="arrow">•</span><span class="text">Supplier strategy</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Make-or-buy</span></li>
-</ul>
-</li>
-</div>
-
-<div class="timeline-item">
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>
-<span class="text">Earlier Projects</span>
-</div>
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span><span class="text">Coca-Cola</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">PepsiCo</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">General Motors</span></li>
 </ul>
 </li>
 </div>
@@ -228,7 +197,7 @@ li { margin: 4px 0; }
 </ul>
 </div>
 
-<!-- RIGHT COLUMN -->
+<!-- RIGHT -->
 <div>
 <ul class="depth-1">
 
@@ -240,7 +209,6 @@ li { margin: 4px 0; }
 <ul class="nested depth-2">
 <li class="static"><span class="arrow">•</span><span class="text">Engineering</span></li>
 <li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Pharma</span></li>
 </ul>
 </li>
 
