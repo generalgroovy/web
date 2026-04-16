@@ -8,52 +8,32 @@
   body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    max-width: 900px;
     color: #111;
   }
 
-  h1 {
-    font-size: 36px;
-    margin-bottom: 5px;
-  }
+  h1 { font-size: 36px; margin-bottom: 5px; }
+  h2 { font-size: 14px; color: #666; margin-bottom: 30px; }
 
-  h2 {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 30px;
-  }
-
-  .section {
-    margin-bottom: 15px;
-  }
-
-  .title {
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
   }
 
   ul {
     list-style: none;
-    padding-left: 20px;
-    margin-top: 5px;
+    padding-left: 0;
   }
 
   li {
-    cursor: pointer;
-    margin: 4px 0;
+    margin: 5px 0;
+  }
+
+  .row {
     display: flex;
     align-items: center;
-  }
-
-  .nested {
-    display: none;
-  }
-
-  .open > .nested {
-    display: block;
+    cursor: pointer;
   }
 
   .arrow {
@@ -61,10 +41,27 @@
     display: inline-block;
   }
 
-  /* Depth styling */
-  .depth-1 { font-size: 18px; font-weight: 600; }
-  .depth-2 { font-size: 16px; color: #222; }
-  .depth-3 { font-size: 14px; color: #444; }
+  .text {
+    flex: 1;
+  }
+
+  .nested {
+    display: none;
+    margin-left: 20px;
+  }
+
+  .open > .nested {
+    display: block;
+  }
+
+  /* FONT HIERARCHY */
+  .depth-1 .text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .depth-2 { font-size: 16px; font-weight: 600; }
+  .depth-3 { font-size: 14px; color: #333; }
   .depth-4 { font-size: 13px; color: #666; }
 
 </style>
@@ -75,123 +72,195 @@
 <h1>Natalia Lee</h1>
 <h2>Business Consulting & Interim Management</h2>
 
-<div class="section">
-  <div class="title" onclick="toggle(this)">
-    <span class="arrow">▶</span> Profile
+<div class="container">
+
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <ul class="depth-1">
+
+      <!-- PROFILE (OPEN) -->
+      <li class="open">
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▼</span>
+          <span class="text">Profile</span>
+        </div>
+        <ul class="nested depth-2">
+
+          <li>14+ years consulting & interim management</li>
+          <li>Industrial engineer</li>
+          <li>Certified project manager</li>
+
+          <li>
+            <div class="row" onclick="toggle(this)">
+              <span class="arrow">▶</span>
+              <span class="text">International experience</span>
+            </div>
+            <ul class="nested depth-3">
+              <li>USA</li>
+              <li>EU</li>
+              <li>Eastern Europe</li>
+            </ul>
+          </li>
+
+          <li>Member: Turnaround Management Association</li>
+
+          <li>
+            <div class="row" onclick="toggle(this)">
+              <span class="arrow">▶</span>
+              <span class="text">Results-driven implementation</span>
+            </div>
+            <ul class="nested depth-3">
+              <li>Product portfolio optimization</li>
+              <li>Cost reduction</li>
+              <li>ERP optimization</li>
+              <li>Quality improvement</li>
+              <li>Delivery reliability</li>
+              <li>Profitability increase</li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+      <!-- PROJECT EXPERIENCE -->
+      <li>
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▶</span>
+          <span class="text">Project Experience</span>
+        </div>
+        <ul class="nested depth-2">
+
+          <li>
+            <div class="row" onclick="toggle(this)">
+              <span class="arrow">▶</span>
+              <span class="text">2024 – Metal Industry (~€50M)</span>
+            </div>
+            <ul class="nested depth-3">
+              <li>IST/SOLL analysis</li>
+              <li>Quick wins & prioritization</li>
+              <li>ERP & SCM implementation</li>
+              <li>Transformation & crisis management</li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="row" onclick="toggle(this)">
+              <span class="arrow">▶</span>
+              <span class="text">Major Clients</span>
+            </div>
+            <ul class="nested depth-3">
+              <li>Coca-Cola (€100M plant)</li>
+              <li>Pentair Südmo</li>
+              <li>PepsiCo</li>
+              <li>General Motors (KAIZEN +50%)</li>
+            </ul>
+          </li>
+
+        </ul>
+      </li>
+
+    </ul>
+
   </div>
-  <ul class="nested depth-1">
-    <li>14+ years consulting & interim management</li>
-    <li>Industrial engineer</li>
-    <li>Certified project manager</li>
 
-    <li onclick="toggle(this)">
-      <span class="arrow">▶</span> International experience
-      <ul class="nested depth-2">
-        <li>USA</li>
-        <li>EU</li>
-        <li>Eastern Europe</li>
-      </ul>
-    </li>
+  <!-- RIGHT COLUMN -->
+  <div>
 
-    <li>Member: Turnaround Management Association</li>
+    <ul class="depth-1">
 
-    <li onclick="toggle(this)">
-      <span class="arrow">▶</span> Results-driven implementation
-      <ul class="nested depth-2">
-        <li>Product portfolio optimization</li>
-        <li>Cost reduction</li>
-        <li>ERP optimization</li>
-        <li>Quality improvement</li>
-        <li>Profitability increase</li>
-      </ul>
-    </li>
-  </ul>
-</div>
+      <!-- FOCUS -->
+      <li>
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▶</span>
+          <span class="text">Focus Areas</span>
+        </div>
+        <ul class="nested depth-2">
+          <li>Operational Excellence</li>
+          <li>Digitalization</li>
+          <li>SCM Transformation</li>
+          <li>Procurement</li>
+          <li>Value Chain Optimization</li>
+          <li>Project Management</li>
+        </ul>
+      </li>
 
-<div class="section">
-  <div class="title" onclick="toggle(this)">
-    <span class="arrow">▶</span> Project Experience
+      <!-- INDUSTRIES (OPEN) -->
+      <li class="open">
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▼</span>
+          <span class="text">Industries</span>
+        </div>
+        <ul class="nested depth-2">
+          <li>Mechanical & plant engineering</li>
+          <li>Food & beverage</li>
+          <li>Pharma & biotech</li>
+          <li>FMCG</li>
+          <li>Textile</li>
+          <li>Agriculture</li>
+        </ul>
+      </li>
+
+      <!-- SKILLS (OPEN) -->
+      <li class="open">
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▼</span>
+          <span class="text">Skills</span>
+        </div>
+        <ul class="nested depth-2">
+          <li>Analytical</li>
+          <li>Solution-oriented</li>
+          <li>Leadership</li>
+          <li>Communicative</li>
+          <li>Team player</li>
+          <li>Conflict capable</li>
+        </ul>
+      </li>
+
+      <!-- LANGUAGES (OPEN) -->
+      <li class="open">
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▼</span>
+          <span class="text">Languages</span>
+        </div>
+        <ul class="nested depth-2">
+          <li>English</li>
+          <li>German</li>
+          <li>Russian</li>
+          <li>Ukrainian</li>
+        </ul>
+      </li>
+
+      <!-- CONTACT (OPEN) -->
+      <li class="open">
+        <div class="row" onclick="toggle(this)">
+          <span class="arrow">▼</span>
+          <span class="text">Contact</span>
+        </div>
+        <ul class="nested depth-2">
+          <li>Regensburg, Germany</li>
+          <li>consulting@natalialee.com</li>
+          <li>+49 170 7679985</li>
+          <li>www.natalialee.com</li>
+        </ul>
+      </li>
+
+    </ul>
+
   </div>
-  <ul class="nested depth-1">
 
-    <li onclick="toggle(this)">
-      <span class="arrow">▶</span> 2024 – Metal Industry (~€50M)
-      <ul class="nested depth-2">
-        <li>IST/SOLL analysis</li>
-        <li>Quick wins & prioritization</li>
-        <li>ERP & SCM implementation</li>
-        <li>Transformation & crisis management</li>
-      </ul>
-    </li>
-
-    <li onclick="toggle(this)">
-      <span class="arrow">▶</span> 2023 – Biotech FMCG
-      <ul class="nested depth-2">
-        <li>Supplier selection</li>
-        <li>Risk analysis</li>
-        <li>Turnkey evaluation</li>
-      </ul>
-    </li>
-
-    <li onclick="toggle(this)">
-      <span class="arrow">▶</span> Major Clients
-      <ul class="nested depth-2">
-        <li>Coca-Cola (€100M plant)</li>
-        <li>Pentair Südmo (turnkey dairy plant)</li>
-        <li>PepsiCo (CO₂ recovery)</li>
-        <li>General Motors (KAIZEN +50%)</li>
-      </ul>
-    </li>
-
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">
-    <span class="arrow">▶</span> Industries
-  </div>
-  <ul class="nested depth-1">
-    <li>Mechanical & plant engineering</li>
-    <li>Food & beverage</li>
-    <li>Pharma & biotech</li>
-    <li>FMCG</li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">
-    <span class="arrow">▶</span> Contact
-  </div>
-  <ul class="nested depth-1">
-    <li>Regensburg, Germany</li>
-    <li>consulting@natalialee.com</li>
-    <li>+49 170 7679985</li>
-  </ul>
 </div>
 
 <script>
-function toggle(element) {
-  const parent = element.parentElement;
+function toggle(el) {
+  const parent = el.parentElement;
   parent.classList.toggle("open");
 
-  const arrow = element.querySelector(".arrow");
+  const arrow = el.querySelector(".arrow");
   if (arrow) {
     arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
   }
 }
-
-// Handle nested li clicks
-document.querySelectorAll("li").forEach(item => {
-  item.addEventListener("click", function(e) {
-    e.stopPropagation();
-
-    const arrow = this.querySelector(".arrow");
-    if (!arrow) return;
-
-    this.classList.toggle("open");
-    arrow.textContent = this.classList.contains("open") ? "▼" : "▶";
-  });
-});
 </script>
 
 </body>
