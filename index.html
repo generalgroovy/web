@@ -12,53 +12,39 @@
   --text-dark: #0f2f2d;
   --text-mid: #2f5f5c;
   --text-light: #5f8f8c;
-  --text-faint: #8fbfbc;
 }
 
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  margin: 20px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto;
   background: var(--bg);
   color: var(--text-dark);
+  margin: 20px;
 }
 
-/* HEADER */
-h1 { font-size: 34px; margin-bottom: 5px; }
-h2 { font-size: 14px; color: var(--text-mid); margin-bottom: 25px; }
+h1 { font-size: 34px; }
+h2 { font-size: 14px; color: var(--text-mid); }
 
-/* LAYOUT */
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
-.left {
-  position: sticky;
-  top: 20px;
-  align-self: start;
-}
+.left { position: sticky; top: 20px; }
 
 @media (max-width: 800px) {
   .container { grid-template-columns: 1fr; }
   .left { position: static; }
 }
 
-/* TREE */
 ul { list-style: none; padding-left: 0; }
 li { margin: 4px 0; }
 
-.row, .static {
-  display: flex;
-  align-items: center;
-}
+.row, .static { display: flex; align-items: center; }
 
 .row {
   cursor: pointer;
-  border-radius: 6px;
-  transition: background 0.2s ease;
 }
-
 .row:hover {
   background: rgba(43,187,173,0.15);
 }
@@ -70,10 +56,7 @@ li { margin: 4px 0; }
   font-weight: bold;
 }
 
-.text {
-  flex: 1;
-  padding: 4px 6px;
-}
+.text { padding: 4px; }
 
 .nested {
   max-height: 0;
@@ -81,56 +64,16 @@ li { margin: 4px 0; }
   margin-left: 22px;
   border-left: 2px solid rgba(43,187,173,0.3);
   padding-left: 10px;
-  transition: max-height 0.35s ease;
+  transition: max-height 0.3s ease;
 }
 
-.open > .nested {
-  max-height: 1000px;
-}
+.open > .nested { max-height: 2000px; }
 
-/* DEPTH COLOR SYSTEM */
-.depth-1 .text {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--primary);
-}
-
-.depth-2 .text { color: var(--text-dark); font-weight: 600; }
-.depth-3 .text { color: var(--text-mid); }
-.depth-4 .text { color: var(--text-light); }
-.depth-5 .text { color: var(--text-faint); }
-
-/* TIMELINE */
-.timeline {
-  position: relative;
-  margin-left: 10px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--primary);
-}
-
-.timeline-item {
-  position: relative;
-  margin-left: 20px;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -15px;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  background: var(--primary);
-  border-radius: 50%;
-}
+/* depth */
+.depth-1 .text { font-size: 20px; font-weight: bold; color: var(--primary); }
+.depth-2 .text { font-size: 16px; color: var(--text-dark); }
+.depth-3 .text { font-size: 14px; color: var(--text-mid); }
+.depth-4 .text { font-size: 13px; color: var(--text-light); }
 
 </style>
 </head>
@@ -146,50 +89,107 @@ li { margin: 4px 0; }
 <div class="left">
 <ul class="depth-1">
 
+<!-- PROFILE -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
 <span class="text">Profile</span>
 </div>
 <ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span><span class="text">14+ years Consulting</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">Industrial Engineer</span></li>
+
+<li class="static"><span class="arrow">•</span><span class="text">14+ years Consulting & Interim Management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Industrial Engineer (Diploma)</span></li>
 <li class="static"><span class="arrow">•</span><span class="text">Certified Project Manager</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">International experience: USA, EU, Eastern Europe</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Member: Turnaround Management Association</span></li>
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Core Impact</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Cost optimization & profitability increase</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP & SCM transformation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Quality & delivery reliability improvement</span></li>
 </ul>
 </li>
 
+</ul>
+</li>
+
+<!-- PROJECT EXPERIENCE -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
 <span class="text">Project Experience</span>
 </div>
 
-<ul class="nested depth-2 timeline">
+<ul class="nested depth-2">
 
-<div class="timeline-item">
+<!-- 2024 -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
-<span class="text">2024 Metal Industry</span>
+<span class="text">2024 Metal Industry (€50M, EU)</span>
 </div>
 <ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span><span class="text">Transformation</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">ERP & SCM</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">IST/SOLL full business analysis</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Quick wins across sales, procurement, production</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP + SCM implementation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Crisis → Transformation → Change Management</span></li>
 </ul>
 </li>
-</div>
 
-<div class="timeline-item">
+<!-- 2023 biotech -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
-<span class="text">DMK Baby Food</span>
+<span class="text">2023 Biotech FMCG (€25M)</span>
 </div>
 <ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span><span class="text">Supplier strategy</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Supplier selection for new technology</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Risk & potential management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Tender & procurement processes</span></li>
 </ul>
 </li>
+
+<!-- DMK -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">2022–23 DMK Baby (€5B)</span>
 </div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Strategic supplier management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Make-or-buy decisions</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">SCM optimization</span></li>
+</ul>
+</li>
+
+<!-- older condensed -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Earlier Projects (2010–2021)</span>
+</div>
+<ul class="nested depth-3">
+
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Industries & Companies</span>
+</div>
+<ul class="nested depth-4">
+<li class="static"><span class="arrow">•</span><span class="text">Coca-Cola – plant construction (€100M)</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">PepsiCo – supplier audits & contracts</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Special machinery – turnaround projects</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">FMCG – CRM/ERP integration</span></li>
+</ul>
+</li>
+
+</ul>
+</li>
 
 </ul>
 </li>
@@ -201,25 +201,73 @@ li { margin: 4px 0; }
 <div>
 <ul class="depth-1">
 
+<!-- FOCUS -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Focus Areas</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Operational Excellence</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Digitalization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">SCM & Procurement</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Transformation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Corporate Culture</span></li>
+</ul>
+</li>
+
+<!-- INDUSTRIES -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
 <span class="text">Industries</span>
 </div>
 <ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span><span class="text">Engineering</span></li>
-<li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Mechanical Engineering</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Food & Beverage</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Pharma & Biotech</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Agriculture & Textile</span></li>
 </ul>
 </li>
 
+<!-- SKILLS -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Skills</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Analytical & solution-oriented</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Strong leadership & communication</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Conflict management</span></li>
+</ul>
+</li>
+
+<!-- LANGUAGES -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Languages</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">English</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">German</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Russian</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Ukrainian</span></li>
+</ul>
+</li>
+
+<!-- CONTACT -->
 <li>
 <div class="row" onclick="toggle(this)">
 <span class="arrow">▶</span>
 <span class="text">Contact</span>
 </div>
 <ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span><span class="text">Regensburg</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Nonnenplatz 5, Regensburg</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
 <li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">www.natalialee.com</span></li>
 </ul>
 </li>
 
@@ -232,7 +280,6 @@ li { margin: 4px 0; }
 function toggle(el) {
   const parent = el.parentElement;
   parent.classList.toggle("open");
-
   const arrow = el.querySelector(".arrow");
   arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
 }
