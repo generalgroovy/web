@@ -2,67 +2,108 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Natalia Lee – Consulting Profile</title>
 
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    color: #111;
-  }
+:root {
+  --primary: #2bbbad;
+  --light: #e8f8f6;
+  --text: #1a1a1a;
+  --muted: #666;
+}
 
-  h1 { font-size: 36px; margin-bottom: 5px; }
-  h2 { font-size: 14px; color: #666; margin-bottom: 30px; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 20px;
+  background: #fff;
+  color: var(--text);
+}
 
+h1 {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+/* LAYOUT */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
   .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1000px;
+    grid-template-columns: 1fr;
   }
+}
 
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
+/* TREE */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-  li {
-    margin: 5px 0;
-  }
+li {
+  margin: 4px 0;
+}
 
-  .row {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
+.row, .static {
+  display: flex;
+  align-items: center;
+}
 
-  .arrow {
-    width: 20px;
-    display: inline-block;
-  }
+.row {
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  .text {
-    flex: 1;
-  }
+.row:hover {
+  background: var(--light);
+  border-radius: 6px;
+}
 
-  .nested {
-    display: none;
-    margin-left: 20px;
-  }
+.arrow {
+  width: 22px;
+  text-align: center;
+  color: var(--primary);
+  font-weight: bold;
+}
 
-  .open > .nested {
-    display: block;
-  }
+.text {
+  flex: 1;
+  padding: 3px 5px;
+}
 
-  /* FONT HIERARCHY */
-  .depth-1 .text {
-    font-size: 20px;
-    font-weight: bold;
-  }
+.nested {
+  display: none;
+  margin-left: 22px;
+  border-left: 2px solid var(--light);
+  padding-left: 10px;
+}
 
-  .depth-2 { font-size: 16px; font-weight: 600; }
-  .depth-3 { font-size: 14px; color: #333; }
-  .depth-4 { font-size: 13px; color: #666; }
+.open > .nested {
+  display: block;
+}
+
+/* DEPTH */
+.depth-1 .text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.depth-2 { font-size: 16px; font-weight: 600; }
+.depth-3 { font-size: 14px; }
+.depth-4 { font-size: 13px; color: #444; }
+.depth-5 { font-size: 12px; color: #666; }
 
 </style>
 </head>
@@ -74,180 +115,184 @@
 
 <div class="container">
 
-  <!-- LEFT COLUMN -->
-  <div>
+<!-- LEFT COLUMN -->
+<div>
+<ul class="depth-1">
 
-    <ul class="depth-1">
+<!-- PROFILE -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Profile</span>
+</div>
 
-      <!-- PROFILE (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Profile</span>
-        </div>
-        <ul class="nested depth-2">
+<ul class="nested depth-2">
 
-          <li>14+ years consulting & interim management</li>
-          <li>Industrial engineer</li>
-          <li>Certified project manager</li>
+<li class="static"><span class="arrow">•</span><span class="text">14+ years Consulting & Interim Management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Industrial Engineer (Diplom)</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Certified Project Manager</span></li>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">International experience</span>
-            </div>
-            <ul class="nested depth-3">
-              <li>USA</li>
-              <li>EU</li>
-              <li>Eastern Europe</li>
-            </ul>
-          </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">International Experience</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">USA</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">EU</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Eastern Europe</span></li>
+</ul>
+</li>
 
-          <li>Member: Turnaround Management Association</li>
+<li class="static"><span class="arrow">•</span><span class="text">Member: Turnaround Management Association (USA)</span></li>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">Results-driven implementation</span>
-            </div>
-            <ul class="nested depth-3">
-              <li>Product portfolio optimization</li>
-              <li>Cost reduction</li>
-              <li>ERP optimization</li>
-              <li>Quality improvement</li>
-              <li>Delivery reliability</li>
-              <li>Profitability increase</li>
-            </ul>
-          </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Core Impact</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Product portfolio optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Cost reduction</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Quality & delivery improvement</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Profitability increase</span></li>
+</ul>
+</li>
 
-        </ul>
-      </li>
+</ul>
+</li>
 
-      <!-- PROJECT EXPERIENCE -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Project Experience</span>
-        </div>
-        <ul class="nested depth-2">
+<!-- PROJECT EXPERIENCE -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Project Experience</span>
+</div>
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">2024 – Metal Industry (~€50M)</span>
-            </div>
-            <ul class="nested depth-3">
-              <li>IST/SOLL analysis</li>
-              <li>Quick wins & prioritization</li>
-              <li>ERP & SCM implementation</li>
-              <li>Transformation & crisis management</li>
-            </ul>
-          </li>
+<ul class="nested depth-2">
 
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">Major Clients</span>
-            </div>
-            <ul class="nested depth-3">
-              <li>Coca-Cola (€100M plant)</li>
-              <li>Pentair Südmo</li>
-              <li>PepsiCo</li>
-              <li>General Motors (KAIZEN +50%)</li>
-            </ul>
-          </li>
+<!-- PROJECT TEMPLATE -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">2024 Metal Industry (€50M, EU)</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Transformation & SCM optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP implementation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Change management</span></li>
+</ul>
+</li>
 
-        </ul>
-      </li>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">2022–23 DMK Baby (€5B)</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Strategic supplier management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Make-or-buy decisions</span></li>
+</ul>
+</li>
 
-    </ul>
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">FMCG / Pharma / Engineering Projects</span>
+</div>
+<ul class="nested depth-3">
+<li class="static"><span class="arrow">•</span><span class="text">Turnaround & crisis management</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">ERP / CRM integration</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Production optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Supplier audits & negotiations</span></li>
+</ul>
+</li>
 
-  </div>
+</ul>
+</li>
 
-  <!-- RIGHT COLUMN -->
-  <div>
+</ul>
+</div>
 
-    <ul class="depth-1">
+<!-- RIGHT COLUMN -->
+<div>
+<ul class="depth-1">
 
-      <!-- FOCUS -->
-      <li>
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▶</span>
-          <span class="text">Focus Areas</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Operational Excellence</li>
-          <li>Digitalization</li>
-          <li>SCM Transformation</li>
-          <li>Procurement</li>
-          <li>Value Chain Optimization</li>
-          <li>Project Management</li>
-        </ul>
-      </li>
+<!-- INDUSTRIES -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Industries</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Mechanical & plant engineering</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Food & beverage</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Pharma & biotech</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">FMCG, Agriculture, Textile</span></li>
+</ul>
+</li>
 
-      <!-- INDUSTRIES (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Industries</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Mechanical & plant engineering</li>
-          <li>Food & beverage</li>
-          <li>Pharma & biotech</li>
-          <li>FMCG</li>
-          <li>Textile</li>
-          <li>Agriculture</li>
-        </ul>
-      </li>
+<!-- FOCUS -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Focus Areas</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Operational Excellence</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Digitalization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">SCM Transformation</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Procurement</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Value Chain Optimization</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Corporate Culture</span></li>
+</ul>
+</li>
 
-      <!-- SKILLS (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Skills</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Analytical</li>
-          <li>Solution-oriented</li>
-          <li>Leadership</li>
-          <li>Communicative</li>
-          <li>Team player</li>
-          <li>Conflict capable</li>
-        </ul>
-      </li>
+<!-- LANGUAGES -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Languages</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">German</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">English</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Russian</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Ukrainian</span></li>
+</ul>
+</li>
 
-      <!-- LANGUAGES (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Languages</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>English</li>
-          <li>German</li>
-          <li>Russian</li>
-          <li>Ukrainian</li>
-        </ul>
-      </li>
+<!-- SKILLS -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Soft Skills</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Analytical & solution-oriented</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Leadership & assertiveness</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Communicative & team player</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">Conflict capable</span></li>
+</ul>
+</li>
 
-      <!-- CONTACT (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Contact</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Regensburg, Germany</li>
-          <li>consulting@natalialee.com</li>
-          <li>+49 170 7679985</li>
-          <li>www.natalialee.com</li>
-        </ul>
-      </li>
+<!-- CONTACT -->
+<li>
+<div class="row" onclick="toggle(this)">
+<span class="arrow">▶</span>
+<span class="text">Contact</span>
+</div>
+<ul class="nested depth-2">
+<li class="static"><span class="arrow">•</span><span class="text">Regensburg, Germany</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
+<li class="static"><span class="arrow">•</span><span class="text">www.natalialee.com</span></li>
+</ul>
+</li>
 
-    </ul>
-
-  </div>
+</ul>
+</div>
 
 </div>
 
