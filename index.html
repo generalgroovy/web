@@ -36,9 +36,15 @@
     cursor: pointer;
   }
 
+  .static {
+    display: flex;
+    align-items: center;
+  }
+
   .arrow {
     width: 20px;
     display: inline-block;
+    text-align: center;
   }
 
   .text {
@@ -76,20 +82,30 @@
 
   <!-- LEFT COLUMN -->
   <div>
-
     <ul class="depth-1">
 
-      <!-- PROFILE (OPEN) -->
-      <li class="open">
+      <!-- PROFILE -->
+      <li>
         <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
+          <span class="arrow">▶</span>
           <span class="text">Profile</span>
         </div>
         <ul class="nested depth-2">
 
-          <li>14+ years consulting & interim management</li>
-          <li>Industrial engineer</li>
-          <li>Certified project manager</li>
+          <li class="static">
+            <span class="arrow">•</span>
+            <span class="text">14+ years consulting & interim management</span>
+          </li>
+
+          <li class="static">
+            <span class="arrow">•</span>
+            <span class="text">Industrial engineer</span>
+          </li>
+
+          <li class="static">
+            <span class="arrow">•</span>
+            <span class="text">Certified project manager</span>
+          </li>
 
           <li>
             <div class="row" onclick="toggle(this)">
@@ -97,27 +113,15 @@
               <span class="text">International experience</span>
             </div>
             <ul class="nested depth-3">
-              <li>USA</li>
-              <li>EU</li>
-              <li>Eastern Europe</li>
+              <li class="static"><span class="arrow">•</span><span class="text">USA</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">EU</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">Eastern Europe</span></li>
             </ul>
           </li>
 
-          <li>Member: Turnaround Management Association</li>
-
-          <li>
-            <div class="row" onclick="toggle(this)">
-              <span class="arrow">▶</span>
-              <span class="text">Results-driven implementation</span>
-            </div>
-            <ul class="nested depth-3">
-              <li>Product portfolio optimization</li>
-              <li>Cost reduction</li>
-              <li>ERP optimization</li>
-              <li>Quality improvement</li>
-              <li>Delivery reliability</li>
-              <li>Profitability increase</li>
-            </ul>
+          <li class="static">
+            <span class="arrow">•</span>
+            <span class="text">Member: Turnaround Management Association</span>
           </li>
 
         </ul>
@@ -137,10 +141,9 @@
               <span class="text">2024 – Metal Industry (~€50M)</span>
             </div>
             <ul class="nested depth-3">
-              <li>IST/SOLL analysis</li>
-              <li>Quick wins & prioritization</li>
-              <li>ERP & SCM implementation</li>
-              <li>Transformation & crisis management</li>
+              <li class="static"><span class="arrow">•</span><span class="text">IST/SOLL analysis</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">Quick wins</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">ERP & SCM implementation</span></li>
             </ul>
           </li>
 
@@ -150,10 +153,9 @@
               <span class="text">Major Clients</span>
             </div>
             <ul class="nested depth-3">
-              <li>Coca-Cola (€100M plant)</li>
-              <li>Pentair Südmo</li>
-              <li>PepsiCo</li>
-              <li>General Motors (KAIZEN +50%)</li>
+              <li class="static"><span class="arrow">•</span><span class="text">Coca-Cola</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">PepsiCo</span></li>
+              <li class="static"><span class="arrow">•</span><span class="text">General Motors</span></li>
             </ul>
           </li>
 
@@ -161,92 +163,40 @@
       </li>
 
     </ul>
-
   </div>
 
   <!-- RIGHT COLUMN -->
   <div>
-
     <ul class="depth-1">
 
-      <!-- FOCUS -->
+      <!-- INDUSTRIES -->
       <li>
         <div class="row" onclick="toggle(this)">
           <span class="arrow">▶</span>
-          <span class="text">Focus Areas</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Operational Excellence</li>
-          <li>Digitalization</li>
-          <li>SCM Transformation</li>
-          <li>Procurement</li>
-          <li>Value Chain Optimization</li>
-          <li>Project Management</li>
-        </ul>
-      </li>
-
-      <!-- INDUSTRIES (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
           <span class="text">Industries</span>
         </div>
         <ul class="nested depth-2">
-          <li>Mechanical & plant engineering</li>
-          <li>Food & beverage</li>
-          <li>Pharma & biotech</li>
-          <li>FMCG</li>
-          <li>Textile</li>
-          <li>Agriculture</li>
+          <li class="static"><span class="arrow">•</span><span class="text">Mechanical & plant engineering</span></li>
+          <li class="static"><span class="arrow">•</span><span class="text">Food & beverage</span></li>
+          <li class="static"><span class="arrow">•</span><span class="text">Pharma & biotech</span></li>
+          <li class="static"><span class="arrow">•</span><span class="text">FMCG</span></li>
         </ul>
       </li>
 
-      <!-- SKILLS (OPEN) -->
-      <li class="open">
+      <!-- CONTACT -->
+      <li>
         <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Skills</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>Analytical</li>
-          <li>Solution-oriented</li>
-          <li>Leadership</li>
-          <li>Communicative</li>
-          <li>Team player</li>
-          <li>Conflict capable</li>
-        </ul>
-      </li>
-
-      <!-- LANGUAGES (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
-          <span class="text">Languages</span>
-        </div>
-        <ul class="nested depth-2">
-          <li>English</li>
-          <li>German</li>
-          <li>Russian</li>
-          <li>Ukrainian</li>
-        </ul>
-      </li>
-
-      <!-- CONTACT (OPEN) -->
-      <li class="open">
-        <div class="row" onclick="toggle(this)">
-          <span class="arrow">▼</span>
+          <span class="arrow">▶</span>
           <span class="text">Contact</span>
         </div>
         <ul class="nested depth-2">
-          <li>Regensburg, Germany</li>
-          <li>consulting@natalialee.com</li>
-          <li>+49 170 7679985</li>
-          <li>www.natalialee.com</li>
+          <li class="static"><span class="arrow">•</span><span class="text">Regensburg, Germany</span></li>
+          <li class="static"><span class="arrow">•</span><span class="text">consulting@natalialee.com</span></li>
+          <li class="static"><span class="arrow">•</span><span class="text">+49 170 7679985</span></li>
         </ul>
       </li>
 
     </ul>
-
   </div>
 
 </div>
