@@ -14,6 +14,7 @@
 
   h1 {
     font-size: 36px;
+    margin-bottom: 5px;
   }
 
   h2 {
@@ -27,34 +28,45 @@
   }
 
   .title {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     cursor: pointer;
-    padding: 5px 0;
+    display: flex;
+    align-items: center;
   }
 
   ul {
-    list-style-type: disc;
+    list-style: none;
     padding-left: 20px;
+    margin-top: 5px;
   }
 
   li {
-    margin: 4px 0;
     cursor: pointer;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
   }
 
   .nested {
     display: none;
-    margin-left: 15px;
   }
 
   .open > .nested {
     display: block;
   }
 
-  .title:hover, li:hover {
-    color: #555;
+  .arrow {
+    width: 20px;
+    display: inline-block;
   }
+
+  /* Depth styling */
+  .depth-1 { font-size: 18px; font-weight: 600; }
+  .depth-2 { font-size: 16px; color: #222; }
+  .depth-3 { font-size: 14px; color: #444; }
+  .depth-4 { font-size: 13px; color: #666; }
+
 </style>
 </head>
 
@@ -64,25 +76,32 @@
 <h2>Business Consulting & Interim Management</h2>
 
 <div class="section">
-  <div class="title" onclick="toggle(this)">Profile</div>
-  <ul class="nested">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Profile
+  </div>
+  <ul class="nested depth-1">
     <li>14+ years consulting & interim management</li>
     <li>Industrial engineer</li>
     <li>Certified project manager</li>
-    <li>International experience
-      <ul class="nested">
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> International experience
+      <ul class="nested depth-2">
         <li>USA</li>
         <li>EU</li>
         <li>Eastern Europe</li>
       </ul>
     </li>
-    <li>Member: Turnaround Management Association (USA)</li>
-    <li>Results-driven implementation
-      <ul class="nested">
+
+    <li>Member: Turnaround Management Association</li>
+
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> Results-driven implementation
+      <ul class="nested depth-2">
         <li>Product portfolio optimization</li>
         <li>Cost reduction</li>
         <li>ERP optimization</li>
-        <li>Quality & delivery improvement</li>
+        <li>Quality improvement</li>
         <li>Profitability increase</li>
       </ul>
     </li>
@@ -90,93 +109,37 @@
 </div>
 
 <div class="section">
-  <div class="title" onclick="toggle(this)">Focus Areas</div>
-  <ul class="nested">
-    <li>Operational Excellence</li>
-    <li>Digitalization</li>
-    <li>SCM Transformation</li>
-    <li>Procurement / Purchasing</li>
-    <li>Value Chain Optimization</li>
-    <li>Project Management</li>
-    <li>Corporate Culture & Change</li>
-  </ul>
-</div>
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Project Experience
+  </div>
+  <ul class="nested depth-1">
 
-<div class="section">
-  <div class="title" onclick="toggle(this)">Project Experience</div>
-  <ul class="nested">
-
-    <li>2024 – Metal Industry (~€50M)
-      <ul class="nested">
-        <li>IST/SOLL analysis across all departments</li>
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> 2024 – Metal Industry (~€50M)
+      <ul class="nested depth-2">
+        <li>IST/SOLL analysis</li>
         <li>Quick wins & prioritization</li>
-        <li>Sales, procurement, production optimization</li>
-        <li>ERP & SCM process implementation</li>
+        <li>ERP & SCM implementation</li>
         <li>Transformation & crisis management</li>
       </ul>
     </li>
 
-    <li>2023 – Biotech FMCG (~€25M)
-      <ul class="nested">
-        <li>Supplier selection for new technology</li>
-        <li>Risk & potential analysis</li>
-        <li>Turnkey solution evaluation</li>
-        <li>Tender & award process management</li>
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> 2023 – Biotech FMCG
+      <ul class="nested depth-2">
+        <li>Supplier selection</li>
+        <li>Risk analysis</li>
+        <li>Turnkey evaluation</li>
       </ul>
     </li>
 
-    <li>2023 – Food Startup
-      <ul class="nested">
-        <li>Procurement consolidation</li>
-        <li>Software selection & configuration</li>
-        <li>SCM process optimization</li>
-        <li>Supplier & sourcing strategy</li>
-      </ul>
-    </li>
-
-    <li>2022–2023 – DMK Baby Food (~€5B)
-      <ul class="nested">
-        <li>Supplier management</li>
-        <li>Idea-to-market & make-or-buy</li>
-        <li>Contract negotiations</li>
-        <li>Supply chain stabilization</li>
-      </ul>
-    </li>
-
-    <li>2021–2022 – Special Machinery (~€80M)
-      <ul class="nested">
-        <li>Turnaround & risk management</li>
-        <li>Process optimization</li>
-        <li>Immediate action programs</li>
-      </ul>
-    </li>
-
-    <li>2021 – Pharma (~€2B)
-      <ul class="nested">
-        <li>Workshops & transformation</li>
-        <li>Spare parts optimization</li>
-        <li>P&L impact analysis</li>
-        <li>Roadmap development</li>
-      </ul>
-    </li>
-
-    <li>2020–2021 – FMCG (~€80M)
-      <ul class="nested">
-        <li>CRM & ERP integration</li>
-        <li>Sales & SCM optimization</li>
-        <li>Working capital optimization</li>
-        <li>KPI development</li>
-      </ul>
-    </li>
-
-    <li>Earlier Projects
-      <ul class="nested">
-        <li>Coca-Cola (€100M plant project)</li>
+    <li onclick="toggle(this)">
+      <span class="arrow">▶</span> Major Clients
+      <ul class="nested depth-2">
+        <li>Coca-Cola (€100M plant)</li>
         <li>Pentair Südmo (turnkey dairy plant)</li>
-        <li>PepsiCo (CO₂ recovery system sourcing)</li>
-        <li>Biogena (production optimization)</li>
-        <li>Ecovis / Polymagnet (turnaround)</li>
-        <li>General Motors (KAIZEN, +50% productivity)</li>
+        <li>PepsiCo (CO₂ recovery)</li>
+        <li>General Motors (KAIZEN +50%)</li>
       </ul>
     </li>
 
@@ -184,102 +147,49 @@
 </div>
 
 <div class="section">
-  <div class="title" onclick="toggle(this)">Industries</div>
-  <ul class="nested">
-    <li>Mechanical & Plant Engineering</li>
-    <li>Food & Beverage</li>
-    <li>Pharma & Biotech</li>
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Industries
+  </div>
+  <ul class="nested depth-1">
+    <li>Mechanical & plant engineering</li>
+    <li>Food & beverage</li>
+    <li>Pharma & biotech</li>
     <li>FMCG</li>
-    <li>Textile</li>
-    <li>Agriculture</li>
   </ul>
 </div>
 
 <div class="section">
-  <div class="title" onclick="toggle(this)">Professional Experience</div>
-  <ul class="nested">
-    <li>Krones AG / Inc.
-      <ul class="nested">
-        <li>Turnkey plant project management</li>
-        <li>Key accounts: Coca-Cola, PepsiCo, Unilever, Clorox</li>
-      </ul>
-    </li>
-    <li>Ecovis / Polymagnet
-      <ul class="nested">
-        <li>Interim CEO</li>
-        <li>Turnaround & restructuring</li>
-      </ul>
-    </li>
-    <li>Agrowelt
-      <ul class="nested">
-        <li>Market & investment analysis</li>
-      </ul>
-    </li>
-    <li>Händlmaier
-      <ul class="nested">
-        <li>Procurement strategy</li>
-        <li>Supplier negotiations</li>
-      </ul>
-    </li>
-    <li>General Motors
-      <ul class="nested">
-        <li>Production optimization</li>
-        <li>KAIZEN implementation (+50%)</li>
-      </ul>
-    </li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">Education</div>
-  <ul class="nested">
-    <li>Industrial Engineering Degree</li>
-    <li>Project Management Certification (Krones AG)</li>
-    <li>Executive MBA Course – Cardinal Stritch University (USA)</li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">Skills</div>
-  <ul class="nested">
-    <li>Analytical</li>
-    <li>Solution-oriented</li>
-    <li>Strong leadership</li>
-    <li>Communicative</li>
-    <li>Team player</li>
-    <li>Conflict capable</li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">Languages</div>
-  <ul class="nested">
-    <li>English</li>
-    <li>German</li>
-    <li>Russian</li>
-    <li>Ukrainian</li>
-  </ul>
-</div>
-
-<div class="section">
-  <div class="title" onclick="toggle(this)">Contact</div>
-  <ul class="nested">
+  <div class="title" onclick="toggle(this)">
+    <span class="arrow">▶</span> Contact
+  </div>
+  <ul class="nested depth-1">
     <li>Regensburg, Germany</li>
-    <li>Email: consulting@natalialee.com</li>
-    <li>Phone: +49 170 7679985</li>
-    <li>Web: www.natalialee.com</li>
+    <li>consulting@natalialee.com</li>
+    <li>+49 170 7679985</li>
   </ul>
 </div>
 
 <script>
 function toggle(element) {
-  element.parentElement.classList.toggle("open");
+  const parent = element.parentElement;
+  parent.classList.toggle("open");
+
+  const arrow = element.querySelector(".arrow");
+  if (arrow) {
+    arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
+  }
 }
 
+// Handle nested li clicks
 document.querySelectorAll("li").forEach(item => {
   item.addEventListener("click", function(e) {
     e.stopPropagation();
+
+    const arrow = this.querySelector(".arrow");
+    if (!arrow) return;
+
     this.classList.toggle("open");
+    arrow.textContent = this.classList.contains("open") ? "▼" : "▶";
   });
 });
 </script>
