@@ -1,66 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Generalgroovy</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+<meta charset="UTF-8">
+<title>Natalia Lee – Profile</title>
 
-    .container {
-      max-width: 600px;
-      text-align: left;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #fff;
+    color: #111;
+  }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #444;
-    }
+  .section {
+    margin-bottom: 30px;
+  }
 
-    .links {
-      margin-top: 20px;
-    }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
 
-    .links a {
-      display: block;
-      margin-bottom: 10px;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-    }
+  .content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+  }
 
-    .links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  .section:hover .content {
+    opacity: 1;
+    max-height: 500px;
+  }
+
+  ul {
+    margin: 5px 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+</style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Generalgroovy</h1>
-  
-  <p>
-    Hi, I’m Generalgroovy. This is my personal website where I share projects, ideas, and things I’m working on.
-  </p>
+<h1>Natalia Lee</h1>
 
-  <div class="links">
-    <a href="#">Projects</a>
-    <a href="#">About Me</a>
-    <a href="#">Contact</a>
+<div class="section">
+  <div class="title">Profile</div>
+  <div class="content">
+    <ul>
+      <li>14+ years consulting & interim management</li>
+      <li>Industrial engineer & certified project manager</li>
+      <li>International experience (USA, EU, Eastern Europe)</li>
+      <li>Member of Turnaround Management Association</li>
+      <li>Results-driven implementation & optimization</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Focus Areas</div>
+  <div class="content">
+    <ul>
+      <li>Operational Excellence</li>
+      <li>Digitalization</li>
+      <li>SCM Transformation</li>
+      <li>Procurement Optimization</li>
+      <li>Project Management</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Project Highlights</div>
+  <div class="content">
+    <ul>
+      <li>Process & ERP optimization across industries</li>
+      <li>Supplier selection & strategic sourcing</li>
+      <li>Turnaround & crisis management</li>
+      <li>SCM process implementation</li>
+      <li>Cost reduction & efficiency improvements</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Industries</div>
+  <div class="content">
+    <ul>
+      <li>Mechanical & plant engineering</li>
+      <li>Food & beverage</li>
+      <li>Pharma & biotech</li>
+      <li>Textile & agriculture</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Skills</div>
+  <div class="content">
+    <ul>
+      <li>Analytical & solution-oriented</li>
+      <li>Strong communicator & team player</li>
+      <li>Leadership & conflict resolution</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Languages</div>
+  <div class="content">
+    <ul>
+      <li>English</li>
+      <li>German</li>
+      <li>Russian</li>
+      <li>Ukrainian</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <div class="title">Contact</div>
+  <div class="content">
+    <ul>
+      <li>Regensburg, Germany</li>
+      <li>Email: consulting@natalialee.com</li>
+      <li>Phone: +49 170 7679985</li>
+    </ul>
   </div>
 </div>
 
