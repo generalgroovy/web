@@ -6,16 +6,16 @@
   <title>Natalia Lee | Business Consulting & Interim Management</title>
   <style>
     :root{
-      --bg: #e8faf7;
-      --bg-2: #d9f4ef;
-      --card: #f9fffe;
-      --line: #b9e8df;
+      --bg: #e7fbf7;
+      --bg-2: #d4f4ed;
+      --card: rgba(255,255,255,0.84);
+      --line: #a7e5d9;
       --primary: #0f8f83;
-      --primary-2: #14a99a;
-      --primary-3: #0a6f66;
-      --text: #123935;
-      --text-2: #29534e;
-      --text-3: #4e7772;
+      --primary-2: #18b2a2;
+      --primary-3: #0a6961;
+      --text: #113935;
+      --text-2: #2a5752;
+      --text-3: #547873;
       --shadow: 0 12px 34px rgba(9, 91, 83, 0.10);
       --radius: 18px;
     }
@@ -29,7 +29,7 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(20,169,154,0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(24,178,162,0.16), transparent 26%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       line-height: 1.34;
     }
@@ -156,7 +156,7 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.80);
+      background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 18px 18px 16px;
@@ -170,30 +170,20 @@
       line-height: 1.15;
     }
 
-    .card h3 {
-      margin: 12px 0 6px 0;
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.2;
-    }
-
     .lead,
     .detail,
-    .mini,
     .contact-list {
       margin: 0;
       padding-left: 18px;
     }
 
     .lead > li,
-    .detail > li,
-    .mini > li {
+    .detail > li {
       margin: 3px 0;
     }
 
     .lead > li { color: var(--text); }
     .detail > li { color: var(--text-2); }
-    .mini > li { color: var(--text-3); }
 
     .grid-2 {
       display: grid;
@@ -202,31 +192,77 @@
     }
 
     .project {
-      padding: 10px 0;
       border-top: 1px solid var(--line);
+      padding: 10px 0;
     }
 
-    .project:first-child {
+    .project:first-of-type {
       border-top: 0;
       padding-top: 0;
+    }
+
+    .project-toggle {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: start;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+    }
+
+    .project-toggle:hover .project-title,
+    .project-toggle:hover .project-meta,
+    .project.hovering .project-title,
+    .project.hovering .project-meta {
+      color: var(--primary);
     }
 
     .project-title {
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
+      transition: color 0.18s ease;
     }
 
     .project-meta {
-      color: var(--primary);
+      color: var(--text-3);
       font-size: 0.94rem;
       font-weight: 700;
-      margin-bottom: 5px;
+      transition: color 0.18s ease;
     }
 
-    .project p {
-      margin: 4px 0 0 0;
-      color: var(--text-2);
+    .project-arrow {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.1;
+      padding-top: 2px;
+      transition: transform 0.18s ease;
+    }
+
+    .project.is-open .project-arrow {
+      transform: rotate(90deg);
+    }
+
+    .project-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.2s ease, margin-top 0.2s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .project.hovering .project-content,
+    .project.is-open .project-content {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 6px;
     }
 
     .contact-list {
@@ -244,12 +280,6 @@
     .contact-list li:first-child {
       border-top: 0;
       padding-top: 0;
-    }
-
-    .small-note {
-      color: var(--text-3);
-      font-size: 0.9rem;
-      margin-top: 8px;
     }
 
     a {
@@ -314,9 +344,8 @@
         </p>
         <div class="pill-row">
           <span class="pill">Operational Excellence</span>
-          <span class="pill">Digitalisierung</span>
           <span class="pill">Digitalisierung &amp; ERP</span>
-          <span class="pill">SCM Transformation</span>
+          <span class="pill">SCM / Transformation</span>
           <span class="pill">Procurement / Einkauf</span>
           <span class="pill">Optimierung der Wertschöpfungskette</span>
           <span class="pill">Project Management</span>
@@ -351,159 +380,267 @@
           <div class="grid-2">
             <ul class="detail">
               <li>Operational Excellence</li>
-              <li>Digitalisierung</li>
               <li>Digitalisierung &amp; ERP</li>
-              <li>SCM Transformation</li>
-              <li>SCM</li>
+              <li>SCM / Transformation</li>
             </ul>
             <ul class="detail">
               <li>Procurement / Einkauf</li>
               <li>Optimierung der Wertschöpfungskette</li>
-              <li>Project Management</li>
-              <li>Corporate Culture</li>
-              <li>Transformation</li>
+              <li>Project Management &amp; Corporate Culture</li>
             </ul>
           </div>
         </article>
 
         <article class="card">
-          <h2>Projektbeispiele / Projektauswahl (2021–2024 und Auszug)</h2>
+          <h2>Projektbeispiele / Projektauswahl</h2>
 
           <div class="project">
-            <div class="project-title">2024 – Metallverarbeitung</div>
-            <div class="project-meta">50 Mio. EUR, EU</div>
-            <ul class="detail">
-              <li>Transformation</li>
-              <li>SCM-Prozessoptimierung</li>
-              <li>ERP</li>
-              <li>Change Management</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2024 – Metallverarbeitung</div>
+                <div class="project-meta">50 Mio. EUR, EU</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Transformation</li>
+                <li>SCM-Prozessoptimierung</li>
+                <li>ERP</li>
+                <li>Change Management</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2023 – Biotech FMCG</div>
-            <div class="project-meta">25 Mio. EUR</div>
-            <ul class="detail">
-              <li>Lieferantenauswahl</li>
-              <li>Turnkey-Technologie</li>
-              <li>Risk- und Vergabeprozesse</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2023 – Biotech FMCG</div>
+                <div class="project-meta">25 Mio. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Lieferantenauswahl</li>
+                <li>Turnkey-Technologie</li>
+                <li>Risk- und Vergabeprozesse</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2023 – Lebensmittel Start-up</div>
-            <ul class="detail">
-              <li>Einkaufssoftware</li>
-              <li>Datenkonsolidierung</li>
-              <li>SCM-Optimierung</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2023 – Lebensmittel Start-up</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Einkaufssoftware</li>
+                <li>Datenkonsolidierung</li>
+                <li>SCM-Optimierung</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2022–2023 – DMK Baby</div>
-            <div class="project-meta">5 Mrd. EUR</div>
-            <ul class="detail">
-              <li>Strategisches Lieferantenmanagement</li>
-              <li>Make-or-Buy</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2022–2023 – DMK Baby</div>
+                <div class="project-meta">5 Mrd. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Strategisches Lieferantenmanagement</li>
+                <li>Make-or-Buy</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2021–2022 – Sondermaschinenbau</div>
-            <div class="project-meta">80 Mio. EUR</div>
-            <ul class="detail">
-              <li>Turnaround</li>
-              <li>Risikomanagement</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2021–2022 – Sondermaschinenbau</div>
+                <div class="project-meta">80 Mio. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Turnaround</li>
+                <li>Risikomanagement</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2021 – Pharma</div>
-            <div class="project-meta">2 Mrd. EUR</div>
-            <ul class="detail">
-              <li>P&amp;L Optimierungs-Roadmap</li>
-              <li>Ersatzteilmanagement</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2021 – Pharma</div>
+                <div class="project-meta">2 Mrd. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>P&amp;L Optimierungs-Roadmap</li>
+                <li>Ersatzteilmanagement</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2020–2021 – FMCG</div>
-            <div class="project-meta">80 Mio. EUR</div>
-            <ul class="detail">
-              <li>CRM / ERP Integration</li>
-              <li>Working Capital</li>
-              <li>KPIs</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2020–2021 – FMCG</div>
+                <div class="project-meta">80 Mio. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>CRM / ERP Integration</li>
+                <li>Working Capital</li>
+                <li>KPIs</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2019–2020 – Sondermaschinenbau</div>
-            <ul class="detail">
-              <li>Krisenmanagement &amp; Audit</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2019–2020 – Sondermaschinenbau</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Krisenmanagement &amp; Audit</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2019 – Biogena</div>
-            <ul class="detail">
-              <li>360° Produktionsanalyse</li>
-              <li>Kostensenkung</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2019 – Biogena</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>360° Produktionsanalyse</li>
+                <li>Kostensenkung</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2017–2018 – Mineralölindustrie</div>
-            <ul class="detail">
-              <li>ERP- &amp; Prozessoptimierung</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2017–2018 – Mineralölindustrie</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>ERP- &amp; Prozessoptimierung</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2016 – Coca-Cola</div>
-            <div class="project-meta">100 Mio. EUR Projektvolumen</div>
-            <ul class="detail">
-              <li>Produktionsstandort</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2016 – Coca-Cola</div>
+                <div class="project-meta">100 Mio. EUR Projektvolumen</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Produktionsstandort</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2015–2016 – Pentair Südmo</div>
-            <div class="project-meta">30 Mio. EUR</div>
-            <ul class="detail">
-              <li>Turnkey Molkereianlage</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2015–2016 – Pentair Südmo</div>
+                <div class="project-meta">30 Mio. EUR</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Turnkey Molkereianlage</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2013–2014 – Agrowelt</div>
-            <ul class="detail">
-              <li>Investitionsanalyse</li>
-              <li>Produktionsanlage</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2013–2014 – Agrowelt</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Investitionsanalyse</li>
+                <li>Produktionsanlage</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2013 – Händlmaier</div>
-            <ul class="detail">
-              <li>Internationale Beschaffungsstrategie</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2013 – Händlmaier</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Internationale Beschaffungsstrategie</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2012 – Ecovis / Polymagnet</div>
-            <ul class="detail">
-              <li>Interims Geschäftsführerin</li>
-              <li>M&amp;A</li>
-              <li>Turnaround</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2012 – Ecovis / Polymagnet</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Interims Geschäftsführerin</li>
+                <li>M&amp;A</li>
+                <li>Turnaround</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2010–2011 – PepsiCo</div>
-            <ul class="detail">
-              <li>Lieferantenaudits</li>
-              <li>Vertragsverhandlungen</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2010–2011 – PepsiCo</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Lieferantenaudits</li>
+                <li>Vertragsverhandlungen</li>
+              </ul>
+            </div>
           </div>
         </article>
 
@@ -572,12 +709,8 @@
           <ul class="lead">
             <li>Anlagen- und Maschinenbau</li>
             <li>Lebensmittel- &amp; Getränkeindustrie</li>
-            <li>Lebensmittel &amp; Getränke</li>
-            <li>Pharma</li>
-            <li>Biotech</li>
             <li>Pharma &amp; Biotech</li>
-            <li>Agrar</li>
-            <li>Textil</li>
+            <li>Agrar &amp; Textil</li>
             <li>FMCG</li>
           </ul>
         </article>
@@ -626,5 +759,27 @@
       </div>
     </section>
   </div>
+
+  <script>
+    const projects = document.querySelectorAll('.project');
+
+    projects.forEach(project => {
+      const button = project.querySelector('.project-toggle');
+      if (!button) return;
+
+      button.addEventListener('click', () => {
+        const open = project.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      project.addEventListener('mouseenter', () => {
+        project.classList.add('hovering');
+      });
+
+      project.addEventListener('mouseleave', () => {
+        project.classList.remove('hovering');
+      });
+    });
+  </script>
 </body>
 </html>
