@@ -1,181 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natalia Lee | Business Consulting & Interim Management</title>
+  <style>
+    :root {
+      --bg: #e9f7f5;
+      --card: #f6fbfa;
+      --line: #b7ddd7;
+      --accent: #2f7f78;
+      --accent-2: #4d9a93;
+      --text-1: #173a37;
+      --text-2: #2d5b57;
+      --text-3: #4f7c77;
+      --text-4: #6f9793;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(33, 79, 74, 0.08);
+      --radius: 18px;
+    }
 
-<title>Natalia Lee – Consulting</title>
+    * { box-sizing: border-box; }
 
-<style>
-:root {
-  --bg: #e8f8f6;
-  --primary: #2bbbad;
-  --dark: #0f2f2d;
-  --mid: #2f5f5c;
-  --light: #5f8f8c;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: system-ui, Arial;
-  background: var(--bg);
-  color: var(--dark);
-  margin: 20px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef9f7 0%, #e4f4f1 100%);
+      color: var(--text-1);
+      line-height: 1.45;
+    }
 
-h1 { font-size: 34px; }
-h2 { font-size: 14px; color: var(--mid); }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
+    .hero {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 28px;
+      align-items: center;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(183,221,215,0.8);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
 
-.left { position: sticky; top: 20px; }
+    .logo-wrap {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+    }
 
-@media(max-width:800px){
-  .container { grid-template-columns: 1fr; }
-  .left { position: static; }
-}
+    .logo-wrap img {
+      max-width: 100%;
+      max-height: 190px;
+      object-fit: contain;
+      display: block;
+    }
 
-ul { list-style: none; padding-left: 0; }
-li { margin: 4px 0; }
+    .hero h1 {
+      margin: 0 0 8px 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
 
-.row, .static { display: flex; align-items: center; }
-.row { cursor: pointer; }
+    .hero .subtitle {
+      font-size: 1.08rem;
+      color: var(--text-2);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
 
-.row:hover { background: rgba(43,187,173,0.15); }
+    .hero .tagline {
+      color: var(--text-2);
+      font-size: 1rem;
+      margin: 0 0 18px 0;
+    }
 
-.arrow {
-  width: 22px;
-  text-align: center;
-  color: var(--primary);
-  font-weight: bold;
-}
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.nested {
-  max-height: 0;
-  overflow: hidden;
-  margin-left: 22px;
-  border-left: 2px solid rgba(43,187,173,0.3);
-  padding-left: 10px;
-  transition: max-height 0.3s ease;
-}
+    .pill {
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--accent);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
 
-.open > .nested { max-height: 2000px; }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
 
-.depth-1 { font-size: 20px; font-weight: bold; color: var(--primary); }
-.depth-2 { font-size: 16px; }
-.depth-3 { font-size: 14px; color: var(--mid); }
-.depth-4 { font-size: 13px; color: var(--light); }
+    .stack {
+      display: grid;
+      gap: 24px;
+    }
 
-</style>
+    .card {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(183,221,215,0.9);
+      border-radius: var(--radius);
+      padding: 22px 22px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      margin: 0 0 16px 0;
+      color: var(--accent);
+      font-size: 1.28rem;
+      letter-spacing: 0.01em;
+    }
+
+    .card h3 {
+      margin: 16px 0 8px 0;
+      color: var(--text-1);
+      font-size: 1.02rem;
+    }
+
+    .muted {
+      color: var(--text-2);
+    }
+
+    .lead-list,
+    .detail-list,
+    .mini-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .lead-list > li {
+      margin: 8px 0;
+      color: var(--text-1);
+    }
+
+    .detail-list > li {
+      margin: 6px 0;
+      color: var(--text-2);
+    }
+
+    .mini-list > li {
+      margin: 4px 0;
+      color: var(--text-3);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .project:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .project-title {
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 6px;
+    }
+
+    .project-meta {
+      color: var(--text-3);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .contact-list li {
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+      color: var(--text-2);
+    }
+
+    .contact-list li:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .section-note {
+      color: var(--text-4);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 14px;
+      }
+
+      .hero,
+      .card {
+        padding: 16px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .pill {
+        font-size: 0.86rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <section class="hero">
+      <div class="logo-wrap">
+        <img src="think_and_act_along_the_value_chain.jpeg" alt="Natalia Lee logo" />
+      </div>
 
-<h1>Natalia Lee</h1>
-<h2>Business Consulting & Interim Management</h2>
+      <div>
+        <h1>Natalia Lee</h1>
+        <div class="subtitle">Business Consulting &amp; Interim Management</div>
+        <p class="tagline">
+          Operational Excellence | Digitalisierung | SCM Transformation | Procurement / Einkauf |
+          Optimierung der Wertschöpfungskette | Project Management | Corporate Culture
+        </p>
+        <div class="pill-row">
+          <span class="pill">Operational Excellence</span>
+          <span class="pill">SCM</span>
+          <span class="pill">Transformation</span>
+          <span class="pill">ERP</span>
+          <span class="pill">Procurement</span>
+          <span class="pill">Turnaround</span>
+        </div>
+      </div>
+    </section>
 
-<div class="container">
+    <section class="layout">
+      <div class="stack">
+        <article class="card">
+          <h2>Profile</h2>
+          <ul class="lead-list">
+            <li>14+ Jahre Consulting &amp; Interim Management</li>
+            <li>Wirtschaftsingenieurin (Diplom)</li>
+            <li>Zertifizierte Projektmanagerin</li>
+            <li>Internationale Erfahrung: USA, EU, Osteuropa</li>
+            <li>Mitglied TMA USA</li>
+            <li>Ergebnisorientierte, umsetzungsstarke Implementierung</li>
+            <li>Optimierung von Produktpalette, Kosten und ERP</li>
+            <li>Steigerung von Qualität, Liefertreue und Profitabilität</li>
+          </ul>
+        </article>
 
-<!-- LEFT -->
-<div class="left">
-<ul class="depth-1">
+        <article class="card">
+          <h2>Themenschwerpunkte</h2>
+          <div class="grid-2">
+            <ul class="detail-list">
+              <li>Operational Excellence</li>
+              <li>Digitalisierung</li>
+              <li>Digitalisierung &amp; ERP</li>
+              <li>SCM Transformation</li>
+            </ul>
+            <ul class="detail-list">
+              <li>Procurement / Einkauf</li>
+              <li>Optimierung der Wertschöpfungskette</li>
+              <li>Project Management</li>
+              <li>Corporate Culture</li>
+            </ul>
+          </div>
+        </article>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Profile
-</div>
+        <article class="card">
+          <h2>Projektbeispiele / Projektauswahl</h2>
 
-<ul class="nested depth-2">
+          <div class="project">
+            <div class="project-title">2024 – Metallverarbeitung</div>
+            <div class="project-meta">50 Mio. EUR, EU</div>
+            <ul class="detail-list">
+              <li>Transformation</li>
+              <li>SCM-Prozessoptimierung</li>
+              <li>ERP</li>
+              <li>Change Management</li>
+            </ul>
+          </div>
 
-<li class="static"><span class="arrow">•</span>14+ years consulting</li>
-<li class="static"><span class="arrow">•</span>Industrial Engineer</li>
+          <div class="project">
+            <div class="project-title">2023 – Biotech FMCG</div>
+            <div class="project-meta">25 Mio. EUR</div>
+            <ul class="detail-list">
+              <li>Lieferantenauswahl</li>
+              <li>Turnkey-Technologie</li>
+              <li>Risk- und Vergabeprozesse</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Core Impact
-</div>
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span>Cost optimization</li>
-<li class="static"><span class="arrow">•</span>ERP & SCM</li>
-<li class="static"><span class="arrow">•</span>Turnaround</li>
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2023 – Lebensmittel Start-up</div>
+            <ul class="detail-list">
+              <li>Einkaufssoftware</li>
+              <li>Datenkonsolidierung</li>
+              <li>SCM-Optimierung</li>
+            </ul>
+          </div>
 
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2022–2023 – DMK Baby</div>
+            <div class="project-meta">5 Mrd. EUR</div>
+            <ul class="detail-list">
+              <li>Strategisches Lieferantenmanagement</li>
+              <li>Make-or-Buy</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Project Experience
-</div>
+          <div class="project">
+            <div class="project-title">2021–2022 – Sondermaschinenbau</div>
+            <div class="project-meta">80 Mio. EUR</div>
+            <ul class="detail-list">
+              <li>Turnaround</li>
+              <li>Risikomanagement</li>
+            </ul>
+          </div>
 
-<ul class="nested depth-2">
+          <div class="project">
+            <div class="project-title">2021 – Pharma</div>
+            <div class="project-meta">2 Mrd. EUR</div>
+            <ul class="detail-list">
+              <li>P&amp;L Optimierungs-Roadmap</li>
+              <li>Ersatzteilmanagement</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>2024 Metal Industry
-</div>
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span>Full transformation</li>
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2020–2021 – FMCG</div>
+            <div class="project-meta">80 Mio. EUR</div>
+            <ul class="detail-list">
+              <li>CRM / ERP Integration</li>
+              <li>Working Capital</li>
+              <li>KPIs</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Earlier Projects
-</div>
-<ul class="nested depth-3">
-<li class="static"><span class="arrow">•</span>Coca-Cola</li>
-<li class="static"><span class="arrow">•</span>PepsiCo</li>
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2019–2020 – Sondermaschinenbau</div>
+            <ul class="detail-list">
+              <li>Krisenmanagement</li>
+              <li>Audit</li>
+            </ul>
+          </div>
 
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2019 – Biogena</div>
+            <ul class="detail-list">
+              <li>360° Produktionsanalyse</li>
+              <li>Kostensenkung</li>
+            </ul>
+          </div>
 
-</ul>
-</div>
+          <div class="project">
+            <div class="project-title">2017–2018 – Mineralölindustrie</div>
+            <ul class="detail-list">
+              <li>ERP- und Prozessoptimierung</li>
+            </ul>
+          </div>
 
-<!-- RIGHT -->
-<div>
-<ul class="depth-1">
+          <div class="project">
+            <div class="project-title">2016 – Coca-Cola</div>
+            <div class="project-meta">100 Mio. EUR Projektvolumen</div>
+            <ul class="detail-list">
+              <li>Produktionsstandort</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Industries
-</div>
-<ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span>Engineering</li>
-<li class="static"><span class="arrow">•</span>FMCG</li>
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2015–2016 – Pentair Südmo</div>
+            <div class="project-meta">30 Mio. EUR</div>
+            <ul class="detail-list">
+              <li>Turnkey Molkereianlage</li>
+            </ul>
+          </div>
 
-<li>
-<div class="row" onclick="toggle(this)">
-<span class="arrow">▶</span>Contact
-</div>
-<ul class="nested depth-2">
-<li class="static"><span class="arrow">•</span>Regensburg</li>
-<li class="static"><span class="arrow">•</span>Email</li>
-</ul>
-</li>
+          <div class="project">
+            <div class="project-title">2013–2014 – Agrowelt</div>
+            <ul class="detail-list">
+              <li>Investitionsanalyse</li>
+              <li>Produktionsanlage</li>
+            </ul>
+          </div>
 
-</ul>
-</div>
+          <div class="project">
+            <div class="project-title">2013 – Händlmaier</div>
+            <ul class="detail-list">
+              <li>Internationale Beschaffungsstrategie</li>
+            </ul>
+          </div>
 
-</div>
+          <div class="project">
+            <div class="project-title">2012 – Ecovis / Polymagnet</div>
+            <ul class="detail-list">
+              <li>Interims Geschäftsführerin</li>
+              <li>M&amp;A</li>
+              <li>Turnaround</li>
+            </ul>
+          </div>
 
-<script>
-function toggle(el){
-  const parent = el.parentElement;
-  parent.classList.toggle("open");
-  const arrow = el.querySelector(".arrow");
-  arrow.textContent = parent.classList.contains("open") ? "▼" : "▶";
-}
-</script>
+          <div class="project">
+            <div class="project-title">2010–2011 – PepsiCo</div>
+            <ul class="detail-list">
+              <li>Lieferantenaudits</li>
+              <li>Vertragsverhandlungen</li>
+            </ul>
+          </div>
+        </article>
 
+        <article class="card">
+          <h2>Turnaround &amp; Leadership</h2>
+          <ul class="lead-list">
+            <li>Interims Geschäftsführerin (Polymagnet GmbH)</li>
+            <li>M&amp;A, Kostensenkung &amp; Kundenrückgewinnung</li>
+            <li>Krisenmanagement &amp; Projekt-Audits</li>
+            <li>Mindset- &amp; Geschäftsprozess-Transformation</li>
+            <li>Working Capital &amp; KPI-Entwicklung</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Festanstellung (Auswahl)</h2>
+
+          <div class="project">
+            <div class="project-title">2007–2009 – Krones AG (Deutschland)</div>
+            <ul class="detail-list">
+              <li>Projektleitung schlüsselfertiger Anlagen</li>
+              <li>Projektleitung bis 36 Mio. EUR</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-title">2000–2005 – Krones Inc. (USA)</div>
+            <ul class="detail-list">
+              <li>Abfüll- und Verpackungsanlagen</li>
+              <li>Projektcontrolling</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-title">1998 – General Motors Truck &amp; Bus</div>
+            <ul class="detail-list">
+              <li>KAIZEN Einführung</li>
+              <li>+50% Produktivität</li>
+            </ul>
+          </div>
+
+          <div class="project">
+            <div class="project-title">1998–2000 – E.R. Wagner</div>
+            <ul class="detail-list">
+              <li>Produktionsoptimierung</li>
+              <li>+32%</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <h2>Branchenexpertise / Branchen</h2>
+          <ul class="lead-list">
+            <li>Anlagen- und Maschinenbau</li>
+            <li>Lebensmittel- und Getränkeindustrie</li>
+            <li>Lebensmittel &amp; Getränke</li>
+            <li>Pharma</li>
+            <li>Biotech</li>
+            <li>Pharma &amp; Biotech</li>
+            <li>Agrar</li>
+            <li>Textil</li>
+            <li>FMCG</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Aus- &amp; Weiterbildung / Ausbildung &amp; Sprachen</h2>
+          <h3>Ausbildung</h3>
+          <ul class="detail-list">
+            <li>Diplom Wirtschaftsingenieurin</li>
+            <li>Project Management Zertifikat</li>
+            <li>Executive MBA Course (USA)</li>
+          </ul>
+
+          <h3>Sprachen</h3>
+          <ul class="detail-list">
+            <li>Deutsch</li>
+            <li>Englisch</li>
+            <li>Russisch</li>
+            <li>Ukrainisch</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Soft Skills</h2>
+          <ul class="lead-list">
+            <li>Durchsetzungsfähig</li>
+            <li>Lösungsorientiert</li>
+            <li>Engagiert</li>
+            <li>Analytisch</li>
+            <li>Menschlich überzeugend</li>
+            <li>Teamplayer</li>
+            <li>Kommunikativ &amp; konfliktfähig</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Kontakt</h2>
+          <ul class="contact-list">
+            <li><strong>Adresse:</strong> Nonnenplatz 5, 93047 Regensburg</li>
+            <li><strong>Mobil:</strong> <a href="tel:+491707679985">+49 170 7679985</a></li>
+            <li><strong>E-Mail:</strong> <a href="mailto:consulting@natalialee.com">consulting@natalialee.com</a></li>
+            <li><strong>Web:</strong> <a href="https://www.natalialee.com" target="_blank" rel="noopener noreferrer">www.natalialee.com</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
