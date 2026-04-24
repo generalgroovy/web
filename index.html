@@ -39,6 +39,7 @@
       padding: 22px;
     }
 
+    /* HEADER: text | logo | image */
     .hero {
       display: grid;
       grid-template-columns: 1fr auto 340px;
@@ -98,13 +99,11 @@
       white-space: nowrap;
     }
 
-    /* fixed: no extra vertical area under logo */
     .logo-inline {
-      align-self: start;
-      display: block;
-      padding: 0;
-      margin: 0;
-      line-height: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 8px;
     }
 
     .logo-inline img {
@@ -112,8 +111,6 @@
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 0;
-      vertical-align: top;
     }
 
     .photo-card {
@@ -126,7 +123,6 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       overflow: hidden;
-      align-self: start;
     }
 
     .photo-card img {
@@ -259,6 +255,7 @@
       margin-top: 0;
     }
 
+    /* Hover preview only on devices that actually support hover */
     @media (hover: hover) and (pointer: fine) {
       .project.hovering:not(.is-open) .project-content {
         max-height: 220px;
@@ -312,7 +309,8 @@
         grid-template-columns: 1fr;
       }
       .logo-inline {
-        justify-self: start;
+        justify-content: flex-start;
+        padding-top: 0;
       }
       .photo-card {
         justify-self: start;
@@ -772,7 +770,7 @@
   <script>
     const projects = document.querySelectorAll('.project');
 
-    projects.forEach((project) => {
+    projects.forEach(project => {
       const button = project.querySelector('.project-toggle');
       if (!button) return;
 
@@ -781,18 +779,21 @@
         event.stopPropagation();
 
         const isOpen = project.classList.toggle('is-open');
+        project.classList.remove('hovering');
         button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
 
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        project.addEventListener('mouseenter', () => {
-          project.classList.add('hovering');
-        });
+      button.addEventListener('touchend', (event) => {
+        event.preventDefault();
+      }, { passive: false });
 
-        project.addEventListener('mouseleave', () => {
-          project.classList.remove('hovering');
-        });
-      }
+      project.addEventListener('mouseenter', () => {
+        project.classList.add('hovering');
+      });
+
+      project.addEventListener('mouseleave', () => {
+        project.classList.remove('hovering');
+      });
     });
   </script>
 </body>
