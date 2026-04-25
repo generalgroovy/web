@@ -7,23 +7,24 @@
 
   <style>
     :root{
-      --bg: #e9fbf6;
-      --bg2: #d8f5ef;
-      --card: rgba(255,255,255,0.88);
-      --card2: #f4fffc;
-      --mint: #13a99a;
-      --teal: #08766d;
-      --dark: #123c38;
-      --mid: #315f5a;
-      --soft: #6c928d;
-      --line: #9edfd4;
-      --blue: #bfe9f4;
-      --lavender: #ded7ff;
-      --sand: #fff0c9;
-      --rose: #ffd9dc;
-      --green: #d7f5d0;
-      --shadow: 0 10px 28px rgba(8, 92, 84, 0.10);
-      --radius: 16px;
+      --page-bg: #f3fbf8;
+      --mint-bg: #e4faf5;
+      --blue-bg: #e7f3ff;
+      --lavender-bg: #f0ecff;
+      --sand-bg: #fff5dc;
+      --rose-bg: #ffecef;
+      --green-bg: #eaf9e4;
+      --white-bg: rgba(255,255,255,0.9);
+
+      --line: #a7e5d9;
+      --primary: #0f8f83;
+      --primary-dark: #0a6961;
+      --text: #113935;
+      --text-2: #2a5752;
+      --text-3: #547873;
+
+      --shadow: 0 8px 22px rgba(9,91,83,0.08);
+      --radius: 14px;
     }
 
     * { box-sizing: border-box; }
@@ -31,99 +32,97 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--dark);
+      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(222,215,255,.45), transparent 28%),
-        radial-gradient(circle at top right, rgba(19,169,154,.22), transparent 30%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(circle at top left, rgba(240,236,255,.65), transparent 28%),
+        radial-gradient(circle at top right, rgba(15,143,131,.18), transparent 26%),
+        linear-gradient(180deg, #f7fffc, var(--page-bg));
       line-height: 1.28;
     }
 
     .page {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 14px;
+      padding: 12px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1fr 132px 250px;
-      gap: 14px;
+      grid-template-columns: 1fr 125px 285px;
+      gap: 12px;
       align-items: start;
-      padding: 14px;
-      background: rgba(255,255,255,.76);
+      padding: 13px;
+      background: var(--white-bg);
       border: 1px solid var(--line);
-      border-radius: 22px;
+      border-radius: 20px;
       box-shadow: var(--shadow);
     }
 
     .hero-main h1 {
-      margin: 0 0 4px;
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      color: var(--teal);
+      margin: 0 0 5px;
+      font-size: clamp(2.05rem, 4vw, 3.45rem);
       line-height: 1;
+      color: var(--primary-dark);
     }
 
     .subtitle {
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       font-weight: 700;
-      margin-bottom: 5px;
-      color: var(--dark);
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
     .topline {
-      color: var(--mint);
+      color: var(--primary);
       font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      margin-bottom: 7px;
     }
 
     .summary {
       margin: 0;
-      color: var(--mid);
-      font-size: .96rem;
+      color: var(--text-2);
+      font-size: .94rem;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
+      gap: 5px;
+      margin-top: 9px;
     }
 
     .pill {
       border-radius: 999px;
-      padding: 5px 9px;
-      font-size: .82rem;
+      padding: 5px 8px;
+      font-size: .78rem;
       font-weight: 700;
-      border: 1px solid rgba(8,118,109,.18);
-      color: var(--teal);
-      background: var(--card2);
-    }
-
-    .pill:nth-child(2n) { background: var(--blue); }
-    .pill:nth-child(3n) { background: var(--lavender); }
-    .pill:nth-child(4n) { background: var(--sand); }
-    .pill:nth-child(5n) { background: var(--green); }
-
-    .logo-box,
-    .photo-card {
+      color: var(--primary-dark);
+      border: 1px solid rgba(15,143,131,.18);
       background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
     }
+
+    .pill:nth-child(2n) { background: var(--blue-bg); }
+    .pill:nth-child(3n) { background: var(--lavender-bg); }
+    .pill:nth-child(4n) { background: var(--sand-bg); }
+    .pill:nth-child(5n) { background: var(--green-bg); }
 
     .logo-box {
+      display: block;
+      align-self: start;
       line-height: 0;
       padding: 0;
-      height: fit-content;
-      align-self: start;
+      margin: 0;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
     .logo-box img {
       display: block;
-      width: 132px;
+      width: 125px;
       height: auto;
       margin: 0;
       padding: 0;
@@ -132,8 +131,13 @@
     .photo-card {
       justify-self: end;
       width: 100%;
-      max-width: 250px;
+      max-width: 285px;
       padding: 7px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
     .photo-card img {
@@ -142,42 +146,51 @@
       aspect-ratio: 3 / 4;
       object-fit: cover;
       object-position: top center;
-      border-radius: 12px;
+      border-radius: 11px;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 1.18fr .82fr;
-      gap: 14px;
-      margin-top: 14px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 12px;
+      margin-top: 12px;
       align-items: start;
     }
 
     .stack {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .card {
-      background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 13px 14px;
+      padding: 12px 13px;
       box-shadow: var(--shadow);
     }
 
     .card h2 {
       margin: 0 0 8px;
-      color: var(--teal);
-      font-size: 1.1rem;
-      line-height: 1.12;
+      color: var(--primary-dark);
+      font-size: 1.08rem;
+      line-height: 1.15;
     }
 
     .card h3 {
       margin: 9px 0 4px;
-      color: var(--dark);
-      font-size: .98rem;
+      font-size: .96rem;
+      color: var(--text);
     }
+
+    .theme-card { background: var(--mint-bg); }
+    .projects-card { background: var(--blue-bg); }
+    .leadership-card { background: var(--lavender-bg); }
+    .employment-card { background: var(--sand-bg); }
+    .industries-card { background: var(--green-bg); }
+    .education-card { background: var(--lavender-bg); }
+    .languages-card { background: var(--blue-bg); }
+    .skills-card { background: var(--rose-bg); }
+    .contact-card { background: var(--white-bg); }
 
     ul {
       margin: 0;
@@ -188,17 +201,22 @@
       margin: 2px 0;
     }
 
-    .lead > li { color: var(--dark); }
-    .detail > li { color: var(--mid); }
+    .lead > li,
+    .detail > li {
+      font-size: .92rem;
+    }
+
+    .lead > li { color: var(--text); }
+    .detail > li { color: var(--text-2); }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px 16px;
+      gap: 8px 15px;
     }
 
     .project {
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(10,105,97,.2);
       padding: 7px 0;
     }
 
@@ -226,18 +244,19 @@
 
     .project-title {
       font-weight: 700;
-      color: var(--dark);
+      color: var(--text);
       margin-bottom: 1px;
+      font-size: .94rem;
     }
 
     .project-meta {
-      color: var(--soft);
-      font-size: .89rem;
+      color: var(--text-3);
+      font-size: .84rem;
       font-weight: 700;
     }
 
     .project-arrow {
-      color: var(--mint);
+      color: var(--primary);
       font-weight: 700;
       transition: transform .18s ease;
     }
@@ -256,14 +275,14 @@
 
     @media (hover: hover) and (pointer: fine) {
       .project.hovering:not(.is-open) .project-content {
-        max-height: 700px;
+        max-height: 760px;
         opacity: 1;
         margin-top: 5px;
       }
 
       .project-toggle:hover .project-title,
       .project.hovering .project-title {
-        color: var(--mint);
+        color: var(--primary);
       }
     }
 
@@ -280,8 +299,9 @@
 
     .contact-list li {
       padding: 5px 0;
-      border-top: 1px solid var(--line);
-      color: var(--mid);
+      border-top: 1px solid rgba(10,105,97,.18);
+      color: var(--text-2);
+      font-size: .92rem;
     }
 
     .contact-list li:first-child {
@@ -290,7 +310,7 @@
     }
 
     a {
-      color: var(--teal);
+      color: var(--primary-dark);
       text-decoration: none;
       font-weight: 700;
     }
@@ -298,24 +318,39 @@
     a:hover { text-decoration: underline; }
 
     @media (max-width: 1050px) {
-      .hero { grid-template-columns: 1fr 118px 220px; }
-      .logo-box img { width: 118px; }
-      .photo-card { max-width: 220px; }
+      .hero {
+        grid-template-columns: 1fr 115px 240px;
+      }
+
+      .logo-box img { width: 115px; }
+      .photo-card { max-width: 240px; }
     }
 
     @media (max-width: 880px) {
-      .hero { grid-template-columns: 1fr; }
-      .logo-box { justify-self: start; }
-      .photo-card { justify-self: start; max-width: 250px; }
-      .layout { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-box {
+        justify-self: start;
+      }
+
+      .photo-card {
+        justify-self: start;
+        max-width: 260px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 620px) {
-      .page { padding: 9px; }
-      .hero, .card { padding: 11px; }
+      .page { padding: 8px; }
+      .hero, .card { padding: 10px; }
       .grid-2 { grid-template-columns: 1fr; }
+      .pill { font-size: .76rem; padding: 4px 7px; }
       .photo-card { max-width: 100%; }
-      .pill { font-size: .78rem; }
     }
   </style>
 </head>
@@ -330,11 +365,11 @@
         <div class="topline">Operational Excellence | SCM | Transformation</div>
 
         <p class="summary">
-          +14 Jahre Consulting &amp; Interim Management | Wirtschaftsingenieurin (Diplom) |
+          +14 Jahre Consulting &amp; Interim Management Erfahrung | Wirtschaftsingenieurin (Diplom) |
           zertifizierte Projektmanagerin | internationale Erfahrung (USA, EU, Osteuropa) |
-          Mitglied TMA USA | ergebnisorientierte, umsetzungsstarke Implementierung |
-          Optimierung von Produktpalette, Kosten und ERP sowie Steigerung von Qualität,
-          Liefertreue, Gewinn und Profitabilität.
+          Mitglied TMA USA / Turnaround Management Association | ergebnisorientierte,
+          umsetzungsstarke Implementierung | Optimierung von Produktpalette, Kosten und ERP |
+          Steigerung von Qualität, Liefertreue, Gewinn und Profitabilität.
         </p>
 
         <div class="pill-row">
@@ -363,21 +398,7 @@
 
       <div class="stack">
 
-        <article class="card">
-          <h2>Profil / Werdegang</h2>
-          <ul class="lead">
-            <li>+14 Jahre Consulting &amp; Interim Management Erfahrung</li>
-            <li>Wirtschaftsingenieurin (Diplom)</li>
-            <li>Zertifizierte Projektmanagerin</li>
-            <li>Internationale Erfahrung: USA, EU, Osteuropa</li>
-            <li>Mitglied TMA USA / Turnaround Management Association</li>
-            <li>Ergebnisorientierte, umsetzungsstarke Implementierung</li>
-            <li>Optimierung von Produktpalette, Kosten und ERP</li>
-            <li>Steigerung von Qualität, Liefertreue, Gewinn und Profitabilität</li>
-          </ul>
-        </article>
-
-        <article class="card">
+        <article class="card theme-card">
           <h2>Themenschwerpunkte</h2>
           <div class="grid-2">
             <ul class="detail">
@@ -395,7 +416,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card projects-card">
           <h2>Projektbeispiele / Projektauswahl</h2>
 
           <div class="project">
@@ -721,7 +742,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card leadership-card">
           <h2>Turnaround &amp; Leadership</h2>
           <ul class="lead">
             <li>Interims Geschäftsführerin für Polymagnet GmbH</li>
@@ -732,7 +753,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card employment-card">
           <h2>Festanstellung</h2>
 
           <div class="project">
@@ -814,7 +835,8 @@
       </div>
 
       <div class="stack">
-        <article class="card">
+
+        <article class="card industries-card">
           <h2>Branchenexpertise / Branchen</h2>
           <ul class="lead">
             <li>Anlagen- und Maschinenbau</li>
@@ -828,7 +850,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card education-card">
           <h2>Aus- &amp; Weiterbildung</h2>
           <ul class="lead">
             <li>Wirtschaftsingenieurin Diplom</li>
@@ -837,7 +859,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card languages-card">
           <h2>Sprachen</h2>
           <ul class="lead">
             <li>Deutsch</li>
@@ -847,7 +869,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card skills-card">
           <h2>Soft Skills</h2>
           <ul class="lead">
             <li>Durchsetzungsfähig</li>
@@ -860,7 +882,7 @@
           </ul>
         </article>
 
-        <article class="card">
+        <article class="card contact-card">
           <h2>Kontakt</h2>
           <ul class="contact-list">
             <li><strong>Adresse:</strong> Nonnenplatz 5, 93047 Regensburg</li>
@@ -869,6 +891,7 @@
             <li><strong>Web:</strong> <a href="https://www.natalialee.com" target="_blank" rel="noopener noreferrer">www.natalialee.com</a></li>
           </ul>
         </article>
+
       </div>
     </section>
   </div>
