@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Natalia Lee | Business Consulting & Interim Management</title>
+
   <style>
     :root{
       --bg: #e7fbf7;
       --bg-2: #d4f4ed;
-      --card: rgba(255,255,255,0.84);
+      --card: rgba(255,255,255,0.86);
       --line: #a7e5d9;
       --primary: #0f8f83;
       --primary-2: #18b2a2;
@@ -21,6 +22,7 @@
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -28,7 +30,7 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top right, rgba(24,178,162,0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(24,178,162,0.18), transparent 26%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       line-height: 1.34;
     }
@@ -39,14 +41,13 @@
       padding: 22px;
     }
 
-    /* HEADER: text | logo | image */
     .hero {
       display: grid;
       grid-template-columns: 1fr auto 340px;
       gap: 20px;
       align-items: start;
       padding: 22px;
-      background: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.74);
       border: 1px solid var(--line);
       border-radius: 24px;
       box-shadow: var(--shadow);
@@ -100,10 +101,11 @@
     }
 
     .logo-inline {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 8px;
+      display: block;
+      align-self: start;
+      line-height: 0;
+      margin: 0;
+      padding: 0;
     }
 
     .logo-inline img {
@@ -111,6 +113,9 @@
       max-width: 100%;
       height: auto;
       display: block;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
     }
 
     .photo-card {
@@ -123,6 +128,7 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       overflow: hidden;
+      align-self: start;
     }
 
     .photo-card img {
@@ -162,6 +168,12 @@
       color: var(--primary-3);
       font-size: 1.2rem;
       line-height: 1.15;
+    }
+
+    .card h3 {
+      margin: 12px 0 6px;
+      color: var(--text);
+      font-size: 1rem;
     }
 
     .lead,
@@ -212,13 +224,6 @@
       touch-action: manipulation;
     }
 
-    .project-toggle:hover .project-title,
-    .project-toggle:hover .project-meta,
-    .project.hovering .project-title,
-    .project.hovering .project-meta {
-      color: var(--primary);
-    }
-
     .project-title {
       font-weight: 700;
       color: var(--text);
@@ -255,17 +260,23 @@
       margin-top: 0;
     }
 
-    /* Hover preview only on devices that actually support hover */
     @media (hover: hover) and (pointer: fine) {
       .project.hovering:not(.is-open) .project-content {
-        max-height: 220px;
+        max-height: 520px;
         opacity: 1;
         margin-top: 6px;
+      }
+
+      .project.hovering .project-title,
+      .project.hovering .project-meta,
+      .project-toggle:hover .project-title,
+      .project-toggle:hover .project-meta {
+        color: var(--primary);
       }
     }
 
     .project.is-open .project-content {
-      max-height: 220px;
+      max-height: 900px;
       opacity: 1;
       margin-top: 6px;
     }
@@ -299,6 +310,7 @@
       .hero {
         grid-template-columns: 1fr auto 280px;
       }
+
       .photo-card {
         max-width: 280px;
       }
@@ -308,14 +320,16 @@
       .hero {
         grid-template-columns: 1fr;
       }
+
       .logo-inline {
-        justify-content: flex-start;
-        padding-top: 0;
+        justify-self: start;
       }
+
       .photo-card {
         justify-self: start;
         max-width: 280px;
       }
+
       .layout {
         grid-template-columns: 1fr;
       }
@@ -331,6 +345,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="page">
     <section class="hero">
@@ -370,15 +385,16 @@
     <section class="layout">
       <div class="stack">
         <article class="card">
-          <h2>Profil</h2>
+          <h2>Profil / Werdegang</h2>
           <ul class="lead">
-            <li>+14 Jahre Consulting &amp; Interim Management</li>
+            <li>+14 Jahre Consulting &amp; Interim Management Erfahrung</li>
             <li>Wirtschaftsingenieurin (Diplom)</li>
             <li>Zertifizierte Projektmanagerin</li>
-            <li>Internationale Erfahrung (USA, EU, Osteuropa)</li>
-            <li>Mitglied TMA USA</li>
+            <li>Internationale Erfahrung: USA, EU, Osteuropa</li>
+            <li>Mitglied TMA USA / Turnaround Management Association</li>
             <li>Ergebnisorientierte, umsetzungsstarke Implementierung</li>
-            <li>Optimierung von Produktpalette, Kosten, ERP sowie Steigerung von Qualität, Liefertreue und Profitabilität</li>
+            <li>Optimierung von Produktpalette, Kosten und ERP</li>
+            <li>Steigerung von Qualität, Liefertreue, Gewinn und Profitabilität</li>
           </ul>
         </article>
 
@@ -388,12 +404,14 @@
             <ul class="detail">
               <li>Operational Excellence</li>
               <li>Digitalisierung &amp; ERP</li>
-              <li>SCM / Transformation</li>
+              <li>SCM / SCM Transformation</li>
+              <li>Transformation</li>
             </ul>
             <ul class="detail">
               <li>Procurement / Einkauf</li>
               <li>Optimierung der Wertschöpfungskette</li>
-              <li>Project Management &amp; Corporate Culture</li>
+              <li>Project Management</li>
+              <li>Corporate Culture</li>
             </ul>
           </div>
         </article>
@@ -404,17 +422,18 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2024 – Metallverarbeitung</div>
-                <div class="project-meta">50 Mio. EUR, EU</div>
+                <div class="project-title">08/2024 – 11/2024 | Metallverarbeitungsindustrie</div>
+                <div class="project-meta">ca. 50 Mio. EUR Umsatz, EU</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Transformation</li>
-                <li>SCM-Prozessoptimierung</li>
-                <li>ERP</li>
-                <li>Change Management</li>
+                <li>IST- &amp; SOLL-Analyse aller Unternehmensbereiche in Zusammenarbeit mit CFO &amp; Controlling zur Identifikation von Optimierungspotential</li>
+                <li>Prioritäten gesetzt und Quick Wins realisiert</li>
+                <li>Definition nachhaltiger Verbesserungen in Vertrieb, Einkauf, Produktion und an Schnittstellen zum ERP-System</li>
+                <li>SCM-Prozesse klar festgelegt und gemeinsam mit dem Team vor Ort konsequent umgesetzt</li>
+                <li>Krisenmanagement → Transformation → Change Management</li>
               </ul>
             </div>
           </div>
@@ -422,16 +441,17 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2023 – Biotech FMCG</div>
-                <div class="project-meta">25 Mio. EUR</div>
+                <div class="project-title">11/2023 – 01/2024 | Biotech FMCG</div>
+                <div class="project-meta">ca. 25 Mio. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Lieferantenauswahl</li>
-                <li>Turnkey-Technologie</li>
-                <li>Risk- und Vergabeprozesse</li>
+                <li>Lieferantenauswahl für eine neue Technologie und eine nachhaltige, effiziente Partnerschaft</li>
+                <li>Risk- und Potential-Management der neuen Technologie / Turnkey-Anlage</li>
+                <li>Etablierung und Steuerung von Vergabeprozessen für beste Ergebnisse in Qualität und Zahlen</li>
+                <li>Technische und kaufmännische Bewertung</li>
               </ul>
             </div>
           </div>
@@ -439,15 +459,18 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2023 – Lebensmittel Start-up</div>
+                <div class="project-title">07/2023 – 11/2023 | Lebensmittelindustrie Start-up</div>
+                <div class="project-meta">Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Einkaufssoftware</li>
-                <li>Datenkonsolidierung</li>
-                <li>SCM-Optimierung</li>
+                <li>Datenkonsolidierung für Einkaufsgesellschaft</li>
+                <li>Agglomeration des Einkaufsvolumens von mehreren Gesellschaften</li>
+                <li>Auswahl und Konfiguration einer Einkaufssoftware</li>
+                <li>Einkaufs- und SCM-Prozessoptimierung für die Gesellschaften</li>
+                <li>Strategische Beschaffung, Lieferantenmanagement und operativer Einkauf</li>
               </ul>
             </div>
           </div>
@@ -455,15 +478,17 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2022–2023 – DMK Baby</div>
-                <div class="project-meta">5 Mrd. EUR</div>
+                <div class="project-title">06/2022 – 01/2023 | DMK Baby Nahrung</div>
+                <div class="project-meta">Lebensmittelindustrie, ca. 5 Mrd. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Strategisches Lieferantenmanagement</li>
-                <li>Make-or-Buy</li>
+                <li>Strategisches und operatives Lieferantenmanagement</li>
+                <li>„Idea to Market“, „Make or Buy“, SCM-Prozessoptimierung</li>
+                <li>Führen und Abschluss von Preis- und Vertragsverhandlungen mit Lieferanten</li>
+                <li>Lieferkette sichergestellt</li>
               </ul>
             </div>
           </div>
@@ -471,15 +496,16 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2021–2022 – Sondermaschinenbau</div>
-                <div class="project-meta">80 Mio. EUR</div>
+                <div class="project-title">09/2021 – 04/2022 | Sondermaschinenbau</div>
+                <div class="project-meta">ca. 80 Mio. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Turnaround</li>
-                <li>Risikomanagement</li>
+                <li>Turnaround Management und Risikomanagement aller bestehenden Projekte</li>
+                <li>Prozessanalyse und -optimierung entlang der Wertschöpfungskette</li>
+                <li>Umsetzung von Sofortmaßnahmen</li>
               </ul>
             </div>
           </div>
@@ -487,15 +513,18 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2021 – Pharma</div>
-                <div class="project-meta">2 Mrd. EUR</div>
+                <div class="project-title">04/2021 – 09/2021 | Pharmaindustrie</div>
+                <div class="project-meta">ca. 2 Mrd. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>P&amp;L Optimierungs-Roadmap</li>
-                <li>Ersatzteilmanagement</li>
+                <li>Leitung von Workshops zur Mindset- und Geschäftsprozess-Transformation</li>
+                <li>IST-SOLL-Analyse des Ersatzteilmanagements und der Verbrauchsmaterialien</li>
+                <li>Identifikation verbesserungsfähiger Bereiche</li>
+                <li>Projektion der P&amp;L-Auswirkung</li>
+                <li>Entwicklung einer Optimierungs-Roadmap mit Arbeitspaketen, Timeline sowie notwendigen internen und externen Ressourcen</li>
               </ul>
             </div>
           </div>
@@ -503,16 +532,17 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2020–2021 – FMCG</div>
-                <div class="project-meta">80 Mio. EUR</div>
+                <div class="project-title">11/2020 – 04/2021 | FMCG</div>
+                <div class="project-meta">ca. 80 Mio. EUR Umsatz, Österreich &amp; Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>CRM / ERP Integration</li>
-                <li>Working Capital</li>
-                <li>KPIs</li>
+                <li>Aufbau CRM und Integration in das ERP-System</li>
+                <li>Optimierung der Prozesse im Vertrieb und SCM</li>
+                <li>Working Capital Optimierung</li>
+                <li>Entwicklung von prozessorientierten KPIs</li>
               </ul>
             </div>
           </div>
@@ -520,13 +550,17 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2019–2020 – Sondermaschinenbau</div>
+                <div class="project-title">01/2021 – 04/2021 | Manufacturing / Bau-Zulieferer</div>
+                <div class="project-meta">ca. 60 Mio. EUR Umsatz, Deutschland / Central Europe</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Krisenmanagement &amp; Audit</li>
+                <li>Optimierung der Prozessabläufe im Einkauf</li>
+                <li>Erfassung und Auswertung von Daten für Lieferantenaudits</li>
+                <li>Beratung und Projektmanagement für Wertschöpfungsprozesse, insbesondere im Vertrieb</li>
+                <li>Kommunikationsverbesserung zwischen Vertrieb, Einkauf, Planung, Engineering, Logistik und Produktion</li>
               </ul>
             </div>
           </div>
@@ -534,13 +568,32 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2019 – Biogena</div>
+                <div class="project-title">09/2019 – 04/2020 | Sondermaschinenbau</div>
+                <div class="project-meta">ca. 80 Mio. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>360° Produktionsanalyse</li>
+                <li>Key Account Management, Krisenmanagement und Projektmanagementaudit</li>
+                <li>Erfolgreiche Krisenkommunikation mit dem Kunden im Hinblick auf das gemeinsame Referenzprojekt</li>
+                <li>Identifizierung von Verbesserungspotential für die Projektleitung im Unternehmen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project">
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2019 | Biogena Naturprodukte GmbH &amp; Co KG</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>360-Grad-Analyse der Produktionsprozesse, unter anderem Tablettenanlage</li>
+                <li>Optimierung der Wertschöpfungskette</li>
+                <li>Steigerung der Liefertreue und Qualität</li>
                 <li>Kostensenkung</li>
               </ul>
             </div>
@@ -549,13 +602,21 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2017–2018 – Mineralölindustrie</div>
+                <div class="project-title">2017 – 2018 | Mineralölindustrie</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>ERP- &amp; Prozessoptimierung</li>
+                <li>Prozessanalyse und Prozessoptimierung entlang der Wertschöpfungskette</li>
+                <li>Feststellen von Lücken und Schnittstellenoptimierung</li>
+                <li>Risikoanalyse aller bestehenden Projekte im Unternehmen</li>
+                <li>Definition von Projektertragszielen und Zielevaluation</li>
+                <li>Festlegen sofort realisierbarer Maßnahmen</li>
+                <li>Teamwork und Integration mit Engineering, Controlling, Einkauf, Produktion und Vertrieb</li>
+                <li>ERP-Optimierung</li>
+                <li>Projektmanagement für eine komplexe R&amp;D-Maschine</li>
+                <li>Strategisches Teamcoaching und Managementberatung</li>
               </ul>
             </div>
           </div>
@@ -563,14 +624,21 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2016 – Coca-Cola</div>
-                <div class="project-meta">100 Mio. EUR Projektvolumen</div>
+                <div class="project-title">2016 | Coca-Cola</div>
+                <div class="project-meta">ca. 2,6 Mrd. EUR Umsatz, Deutschland / 100 Mio. EUR Projektvolumen</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Produktionsstandort</li>
+                <li>Gesamtprojektsteuerung für die Errichtung eines neuen Produktionsstandortes inklusive Produktionsanlagen</li>
+                <li>Optimierung bestehender Anlagen</li>
+                <li>Klärung technischer Spezifikationen und Anforderungen mit Lieferanten</li>
+                <li>Zieldefinition für eine nachhaltige, kosteneffiziente Engineering-Lösung</li>
+                <li>Vorbereitung der Ausschreibungsverfahren</li>
+                <li>Lieferantenauswahl anhand technischer Spezifikationen</li>
+                <li>Führung der zuständigen Projektingenieure für Teilprojekte</li>
+                <li>Investitionsplanung, Budgeterstellung und Budgetkontrolle</li>
               </ul>
             </div>
           </div>
@@ -578,14 +646,21 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2015–2016 – Pentair Südmo</div>
-                <div class="project-meta">30 Mio. EUR</div>
+                <div class="project-title">2015 – 2016 | Pentair Südmo</div>
+                <div class="project-meta">Deutschland, Litauen / 30 Mio. EUR Projektvolumen</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Turnkey Molkereianlage</li>
+                <li>Projektmanagement für eine Turnkey-Anlage zur Erzeugung von Molkereiprodukten</li>
+                <li>Technologieinnovation mit einem Projektvolumen von 30 Mio. EUR</li>
+                <li>Klärung technischer Spezifikationen und Anforderungen</li>
+                <li>Lieferantenauswahl</li>
+                <li>Zieldefinition für nachhaltige, kosteneffiziente Engineering-Lösung</li>
+                <li>Leitung der technologischen Integration der einzelnen Anlagenbestandteile</li>
+                <li>Federführende Verhandlungen mit dem Kunden zu technischen und kaufmännischen Fragen sowie Projektverträgen</li>
+                <li>Leitung des On-Site Managements und der Installation vor Ort</li>
               </ul>
             </div>
           </div>
@@ -593,14 +668,18 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2013–2014 – Agrowelt</div>
+                <div class="project-title">2013 – 2014 | Agrowelt GmbH</div>
+                <div class="project-meta">Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Investitionsanalyse</li>
-                <li>Produktionsanlage</li>
+                <li>Umfangreiche Marktanalysen für die Produktion unterschiedlicher Ölvarianten</li>
+                <li>Technische Analysen für verschiedene Produktionskonzepte und Produktionsanlagen</li>
+                <li>Investitions- und Wirtschaftlichkeitsanalyse unterschiedlicher Produktionsprozesse und Anlagen</li>
+                <li>Beschaffung einer Produktionsanlage für Sonnenblumenöl</li>
+                <li>Akquise und Gewinnung erster Kunden</li>
               </ul>
             </div>
           </div>
@@ -608,13 +687,18 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2013 – Händlmaier</div>
+                <div class="project-title">2013 | Händlmaier GmbH</div>
+                <div class="project-meta">ca. 28 Mio. EUR Umsatz, Deutschland</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Internationale Beschaffungsstrategie</li>
+                <li>Beschaffung von Senfsaat innerhalb des vorgegebenen Preis- und Volumenkorridors</li>
+                <li>Marktanalysen und Entwicklung einer Beschaffungsstrategie für den russischen und ukrainischen Agrarmarkt</li>
+                <li>Vernetzung mit hochrangigen Beamten im ukrainischen Agrarministerium und in der Agrarwirtschaft</li>
+                <li>Führen und Abschluss von Preis- und Vertragsverhandlungen mit Lieferanten und Produzenten</li>
+                <li>Steuerung der Logistikprozesse für die Anlieferung von Senfsaat</li>
               </ul>
             </div>
           </div>
@@ -622,15 +706,20 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2012 – Ecovis / Polymagnet</div>
+                <div class="project-title">2012 | Ecovis GmbH / Polymagnet GmbH</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Interims Geschäftsführerin</li>
-                <li>M&amp;A</li>
-                <li>Turnaround</li>
+                <li>Interims Geschäftsführerin für Polymagnet GmbH</li>
+                <li>M&amp;A / Turnaround</li>
+                <li>Initiierung und Leitung eines Kundenrückgewinnungsprogramms</li>
+                <li>Definition der Rahmenbedingungen und Ressourcen für die Entwicklung eines neuartigen Magneten</li>
+                <li>Umsetzung wesentlicher Kosteneinsparungen</li>
+                <li>Steuerung aller schwebenden Rechtsfälle mit Ziel einer gütlichen Einigung / eines Vergleichs</li>
+                <li>Organisation und Koordination eines Lieferantenaudits</li>
+                <li>Organisation des Umzugs der Firmenzentrale nach Regensburg</li>
               </ul>
             </div>
           </div>
@@ -638,74 +727,109 @@
           <div class="project">
             <button class="project-toggle" type="button" aria-expanded="false">
               <div>
-                <div class="project-title">2010–2011 – PepsiCo</div>
+                <div class="project-title">2010 – 2011 | PepsiCo</div>
               </div>
               <span class="project-arrow">▶</span>
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Lieferantenaudits</li>
-                <li>Vertragsverhandlungen</li>
+                <li>Lieferantenaudits für die Beschaffung einer CO2-Rückgewinnungsanlage</li>
+                <li>Analyse und Vergleich von Angeboten hinsichtlich Prozessoptimierung, energetischer Nachhaltigkeit, Qualität, Preis-Leistungs-Verhältnis, Liefer- und Installationsbedingungen</li>
+                <li>Durchführung und Abschluss der Vertragsverhandlungen</li>
+                <li>Erstellung einer detaillierten und umfangreichen Projektdokumentation</li>
               </ul>
             </div>
           </div>
-        </article>
-
-        <article class="card">
-          <h2>Weitere Projekterfahrung</h2>
-          <ul class="lead">
-            <li>Coca-Cola: Produktionsstandort (100 Mio. EUR Projektvolumen)</li>
-            <li>Pentair Südmo: Turnkey Molkereianlage (30 Mio. EUR)</li>
-            <li>Sondermaschinenbau: Turnaround &amp; Risikomanagement</li>
-            <li>Mineralölindustrie: ERP- &amp; Prozessoptimierung</li>
-            <li>PepsiCo: Lieferantenaudits &amp; Vertragsverhandlungen</li>
-          </ul>
         </article>
 
         <article class="card">
           <h2>Turnaround &amp; Leadership</h2>
           <ul class="lead">
-            <li>Interims Geschäftsführerin (Polymagnet GmbH)</li>
-            <li>M&amp;A, Kostensenkung &amp; Kundenrückgewinnung</li>
-            <li>Krisenmanagement &amp; Projekt-Audits</li>
-            <li>Mindset- &amp; Geschäftsprozess-Transformation</li>
-            <li>Working Capital &amp; KPI-Entwicklung</li>
+            <li>Interims Geschäftsführerin für Polymagnet GmbH</li>
+            <li>M&amp;A, Kostensenkung und Kundenrückgewinnung</li>
+            <li>Krisenmanagement und Projekt-Audits</li>
+            <li>Mindset- und Geschäftsprozess-Transformation</li>
+            <li>Working Capital Optimierung und KPI-Entwicklung</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2>Festanstellung (Auswahl)</h2>
+          <h2>Festanstellung</h2>
 
           <div class="project">
-            <div class="project-title">2007–2009 – Krones AG (Deutschland)</div>
-            <ul class="detail">
-              <li>Projektleitung schlüsselfertiger Anlagen</li>
-              <li>Projektleitung bis 36 Mio. EUR</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2007 – 2009 | Krones AG</div>
+                <div class="project-meta">Deutschland</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Federführende Projektsteuerung und Projektleitung für schlüsselfertige Anlagen und Greenfield-Projekte bis 36 Mio. EUR Auftragswert</li>
+                <li>Verantwortung von technischer Anforderungsdefinition über Angebotserstellung bis Abnahme vor Ort</li>
+                <li>Prozessoptimierungen und Problemlösungen während der gesamten Projektdauer</li>
+                <li>Zusammenarbeit mit F&amp;E und OEM</li>
+                <li>Erstellung und flexible Anpassung des Projektzeitplans</li>
+                <li>Koordination der Installation vor Ort</li>
+                <li>Umsetzung einer detaillierten Einführungsstrategie</li>
+                <li>Betreuung der Key Accounts: PepsiCo, Unilever und Clorox</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">2000–2005 – Krones Inc. (USA)</div>
-            <ul class="detail">
-              <li>Abfüll- &amp; Verpackungsanlagen</li>
-              <li>Projektcontrolling</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">2000 – 2005 | Krones Inc.</div>
+                <div class="project-meta">USA</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Erarbeitung und Vorstellung von Gesamtlösungen für Abfüll- und Verpackungsanlagen</li>
+                <li>Projektleitung und Projektsteuerung vom Auftragseingang bis zur Kundenabnahme</li>
+                <li>Projektcontrolling von Kosten, Ressourcen und Terminen</li>
+                <li>Verantwortlicher Ansprechpartner und Berater für Kunden in technischen Fragen</li>
+                <li>Betreuung der Key Accounts: Coca-Cola, Pepsi, Molson, Global Beverage, Kendall Jackson</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">1998 – General Motors Truck &amp; Bus</div>
-            <ul class="detail">
-              <li>KAIZEN Einführung</li>
-              <li>+50% Produktivität</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">1998 – 2000 | E. R. Wagner Manufacturing Co.</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Effizienzanalyse für neue Automatisierungssysteme</li>
+                <li>Bewertung der Auslastung bestehender Anlagen</li>
+                <li>Erarbeitung und Optimierung eines neuen Produktionsablaufs</li>
+                <li>Produktivitätssteigerung um 32%</li>
+                <li>Einkauf und Implementierung des neuen Automatisierungssystems</li>
+              </ul>
+            </div>
           </div>
 
           <div class="project">
-            <div class="project-title">1998–2000 – E.R. Wagner</div>
-            <ul class="detail">
-              <li>Produktionsoptimierung</li>
-              <li>+32%</li>
-            </ul>
+            <button class="project-toggle" type="button" aria-expanded="false">
+              <div>
+                <div class="project-title">03/1998 – 10/1998 | General Motors Truck &amp; Bus</div>
+              </div>
+              <span class="project-arrow">▶</span>
+            </button>
+            <div class="project-content">
+              <ul class="detail">
+                <li>Erschließung neuer Möglichkeiten zur Produktivitätssteigerung bei einer neuen LKW-Fertigungsstraße</li>
+                <li>Optimierung des Zeitmanagements für einzelne Segmente der Fertigungsstraße</li>
+                <li>Einführung der KAIZEN-Systeme in Zusammenarbeit mit einem japanischen Consulting-Unternehmen</li>
+                <li>Produktivitätssteigerung der Fertigungsstraße um 50%</li>
+              </ul>
+            </div>
           </div>
         </article>
       </div>
@@ -715,19 +839,22 @@
           <h2>Branchenexpertise / Branchen</h2>
           <ul class="lead">
             <li>Anlagen- und Maschinenbau</li>
-            <li>Lebensmittel- &amp; Getränkeindustrie</li>
+            <li>Lebensmittel- und Getränkeindustrie</li>
             <li>Pharma &amp; Biotech</li>
-            <li>Agrar &amp; Textil</li>
+            <li>Agrar &amp; Textilindustrie</li>
             <li>FMCG</li>
+            <li>Manufacturing / Bau-Zulieferer</li>
+            <li>Sondermaschinenbau</li>
+            <li>Mineralölindustrie</li>
           </ul>
         </article>
 
         <article class="card">
-          <h2>Aus- &amp; Weiterbildung / Ausbildung</h2>
+          <h2>Aus- &amp; Weiterbildung</h2>
           <ul class="lead">
-            <li>Diplom Wirtschaftsingenieurin</li>
-            <li>Project Management Zertifikat</li>
-            <li>Executive MBA Course (USA)</li>
+            <li>Wirtschaftsingenieurin Diplom</li>
+            <li>2008 – 2009: Project Management Zertifikat, Krones AG</li>
+            <li>2000 – 2001: Contemporary Management Executive MBA Course, Cardinal Stritch University, Milwaukee, USA</li>
           </ul>
         </article>
 
@@ -749,8 +876,8 @@
             <li>Engagiert</li>
             <li>Analytisch</li>
             <li>Menschlich überzeugend</li>
-            <li>Teamplayer</li>
-            <li>Kommunikativ &amp; konfliktfähig</li>
+            <li>Team Player / Teamplayer</li>
+            <li>Kommunikativ und konfliktfähig</li>
           </ul>
         </article>
 
@@ -768,9 +895,7 @@
   </div>
 
   <script>
-    const projects = document.querySelectorAll('.project');
-
-    projects.forEach(project => {
+    document.querySelectorAll('.project').forEach((project) => {
       const button = project.querySelector('.project-toggle');
       if (!button) return;
 
@@ -779,21 +904,18 @@
         event.stopPropagation();
 
         const isOpen = project.classList.toggle('is-open');
-        project.classList.remove('hovering');
         button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
 
-      button.addEventListener('touchend', (event) => {
-        event.preventDefault();
-      }, { passive: false });
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        project.addEventListener('mouseenter', () => {
+          project.classList.add('hovering');
+        });
 
-      project.addEventListener('mouseenter', () => {
-        project.classList.add('hovering');
-      });
-
-      project.addEventListener('mouseleave', () => {
-        project.classList.remove('hovering');
-      });
+        project.addEventListener('mouseleave', () => {
+          project.classList.remove('hovering');
+        });
+      }
     });
   </script>
 </body>
