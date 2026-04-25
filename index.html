@@ -7,199 +7,199 @@
 
   <style>
     :root{
-      --bg: #e7fbf7;
-      --bg-2: #d4f4ed;
-      --card: rgba(255,255,255,0.86);
-      --line: #a7e5d9;
-      --primary: #0f8f83;
-      --primary-2: #18b2a2;
-      --primary-3: #0a6961;
-      --text: #113935;
-      --text-2: #2a5752;
-      --text-3: #547873;
-      --shadow: 0 12px 34px rgba(9, 91, 83, 0.10);
-      --radius: 18px;
+      --bg: #e9fbf6;
+      --bg2: #d8f5ef;
+      --card: rgba(255,255,255,0.88);
+      --card2: #f4fffc;
+      --mint: #13a99a;
+      --teal: #08766d;
+      --dark: #123c38;
+      --mid: #315f5a;
+      --soft: #6c928d;
+      --line: #9edfd4;
+      --blue: #bfe9f4;
+      --lavender: #ded7ff;
+      --sand: #fff0c9;
+      --rose: #ffd9dc;
+      --green: #d7f5d0;
+      --shadow: 0 10px 28px rgba(8, 92, 84, 0.10);
+      --radius: 16px;
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
+      color: var(--dark);
       background:
-        radial-gradient(circle at top right, rgba(24,178,162,0.18), transparent 26%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-      line-height: 1.34;
+        radial-gradient(circle at top left, rgba(222,215,255,.45), transparent 28%),
+        radial-gradient(circle at top right, rgba(19,169,154,.22), transparent 30%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.28;
     }
 
     .page {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 22px;
+      padding: 14px;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1fr auto 340px;
-      gap: 20px;
+      grid-template-columns: 1fr 132px 250px;
+      gap: 14px;
       align-items: start;
-      padding: 22px;
-      background: rgba(255,255,255,0.74);
+      padding: 14px;
+      background: rgba(255,255,255,.76);
       border: 1px solid var(--line);
-      border-radius: 24px;
+      border-radius: 22px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(6px);
     }
 
     .hero-main h1 {
-      margin: 0 0 8px 0;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      line-height: 1.02;
-      color: var(--primary-3);
-      letter-spacing: 0.01em;
+      margin: 0 0 4px;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      color: var(--teal);
+      line-height: 1;
     }
 
     .subtitle {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
+      margin-bottom: 5px;
+      color: var(--dark);
     }
 
     .topline {
-      color: var(--primary);
+      color: var(--mint);
       font-weight: 700;
-      font-size: 1.04rem;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
     .summary {
       margin: 0;
-      color: var(--text-2);
-      font-size: 1rem;
+      color: var(--mid);
+      font-size: .96rem;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
+      gap: 6px;
+      margin-top: 10px;
     }
 
     .pill {
-      background: linear-gradient(180deg, #ffffff 0%, #effcf9 100%);
-      color: var(--primary-3);
-      border: 1px solid var(--line);
       border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 0.9rem;
+      padding: 5px 9px;
+      font-size: .82rem;
       font-weight: 700;
-      white-space: nowrap;
+      border: 1px solid rgba(8,118,109,.18);
+      color: var(--teal);
+      background: var(--card2);
     }
 
-    .logo-inline {
-      display: block;
-      align-self: start;
+    .pill:nth-child(2n) { background: var(--blue); }
+    .pill:nth-child(3n) { background: var(--lavender); }
+    .pill:nth-child(4n) { background: var(--sand); }
+    .pill:nth-child(5n) { background: var(--green); }
+
+    .logo-box,
+    .photo-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .logo-box {
       line-height: 0;
-      margin: 0;
       padding: 0;
+      height: fit-content;
+      align-self: start;
     }
 
-    .logo-inline img {
-      width: 120px;
-      max-width: 100%;
-      height: auto;
+    .logo-box img {
       display: block;
+      width: 132px;
+      height: auto;
       margin: 0;
       padding: 0;
-      vertical-align: top;
     }
 
     .photo-card {
       justify-self: end;
       width: 100%;
-      max-width: 340px;
-      padding: 10px;
-      background: linear-gradient(180deg, #ffffff 0%, #f4fffd 100%);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      align-self: start;
+      max-width: 250px;
+      padding: 7px;
     }
 
     .photo-card img {
       display: block;
       width: 100%;
-      height: auto;
-      border-radius: 14px;
+      aspect-ratio: 3 / 4;
       object-fit: cover;
       object-position: top center;
-      aspect-ratio: 3 / 4;
-      background: #eef8f6;
+      border-radius: 12px;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 22px;
-      margin-top: 22px;
+      grid-template-columns: 1.18fr .82fr;
+      gap: 14px;
+      margin-top: 14px;
       align-items: start;
     }
 
     .stack {
       display: grid;
-      gap: 22px;
+      gap: 14px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 18px 18px 16px;
+      padding: 13px 14px;
       box-shadow: var(--shadow);
     }
 
     .card h2 {
-      margin: 0 0 12px 0;
-      color: var(--primary-3);
-      font-size: 1.2rem;
-      line-height: 1.15;
+      margin: 0 0 8px;
+      color: var(--teal);
+      font-size: 1.1rem;
+      line-height: 1.12;
     }
 
     .card h3 {
-      margin: 12px 0 6px;
-      color: var(--text);
-      font-size: 1rem;
+      margin: 9px 0 4px;
+      color: var(--dark);
+      font-size: .98rem;
     }
 
-    .lead,
-    .detail,
-    .contact-list {
+    ul {
       margin: 0;
-      padding-left: 18px;
+      padding-left: 17px;
     }
 
-    .lead > li,
-    .detail > li {
-      margin: 3px 0;
+    li {
+      margin: 2px 0;
     }
 
-    .lead > li { color: var(--text); }
-    .detail > li { color: var(--text-2); }
+    .lead > li { color: var(--dark); }
+    .detail > li { color: var(--mid); }
 
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px 18px;
+      gap: 8px 16px;
     }
 
     .project {
       border-top: 1px solid var(--line);
-      padding: 10px 0;
+      padding: 7px 0;
     }
 
     .project:first-of-type {
@@ -211,7 +211,7 @@
       width: 100%;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 10px;
+      gap: 8px;
       align-items: start;
       background: transparent;
       border: 0;
@@ -226,26 +226,20 @@
 
     .project-title {
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 2px;
-      transition: color 0.18s ease;
+      color: var(--dark);
+      margin-bottom: 1px;
     }
 
     .project-meta {
-      color: var(--text-3);
-      font-size: 0.94rem;
+      color: var(--soft);
+      font-size: .89rem;
       font-weight: 700;
-      transition: color 0.18s ease;
     }
 
     .project-arrow {
-      color: var(--primary);
+      color: var(--mint);
       font-weight: 700;
-      font-size: 1rem;
-      line-height: 1.1;
-      padding-top: 2px;
-      transition: transform 0.18s ease;
-      user-select: none;
+      transition: transform .18s ease;
     }
 
     .project.is-open .project-arrow {
@@ -255,30 +249,28 @@
     .project-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.28s ease, opacity 0.2s ease, margin-top 0.2s ease;
       opacity: 0;
       margin-top: 0;
+      transition: max-height .25s ease, opacity .18s ease, margin-top .18s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
       .project.hovering:not(.is-open) .project-content {
-        max-height: 520px;
+        max-height: 700px;
         opacity: 1;
-        margin-top: 6px;
+        margin-top: 5px;
       }
 
-      .project.hovering .project-title,
-      .project.hovering .project-meta,
       .project-toggle:hover .project-title,
-      .project-toggle:hover .project-meta {
-        color: var(--primary);
+      .project.hovering .project-title {
+        color: var(--mint);
       }
     }
 
     .project.is-open .project-content {
-      max-height: 900px;
+      max-height: 1400px;
       opacity: 1;
-      margin-top: 6px;
+      margin-top: 5px;
     }
 
     .contact-list {
@@ -287,10 +279,9 @@
     }
 
     .contact-list li {
-      margin: 0;
-      padding: 7px 0;
+      padding: 5px 0;
       border-top: 1px solid var(--line);
-      color: var(--text-2);
+      color: var(--mid);
     }
 
     .contact-list li:first-child {
@@ -299,73 +290,59 @@
     }
 
     a {
-      color: var(--primary-3);
+      color: var(--teal);
       text-decoration: none;
       font-weight: 700;
     }
 
     a:hover { text-decoration: underline; }
 
-    @media (max-width: 1100px) {
-      .hero {
-        grid-template-columns: 1fr auto 280px;
-      }
-
-      .photo-card {
-        max-width: 280px;
-      }
+    @media (max-width: 1050px) {
+      .hero { grid-template-columns: 1fr 118px 220px; }
+      .logo-box img { width: 118px; }
+      .photo-card { max-width: 220px; }
     }
 
-    @media (max-width: 920px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .logo-inline {
-        justify-self: start;
-      }
-
-      .photo-card {
-        justify-self: start;
-        max-width: 280px;
-      }
-
-      .layout {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; }
+      .logo-box { justify-self: start; }
+      .photo-card { justify-self: start; max-width: 250px; }
+      .layout { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
-      .page { padding: 12px; }
-      .hero, .card { padding: 14px; }
+      .page { padding: 9px; }
+      .hero, .card { padding: 11px; }
       .grid-2 { grid-template-columns: 1fr; }
-      .pill-row { gap: 6px; }
-      .pill { font-size: 0.82rem; padding: 6px 9px; }
       .photo-card { max-width: 100%; }
+      .pill { font-size: .78rem; }
     }
   </style>
 </head>
 
 <body>
   <div class="page">
+
     <section class="hero">
       <div class="hero-main">
         <h1>Natalia Lee</h1>
         <div class="subtitle">Business Consulting &amp; Interim Management</div>
         <div class="topline">Operational Excellence | SCM | Transformation</div>
+
         <p class="summary">
           +14 Jahre Consulting &amp; Interim Management | Wirtschaftsingenieurin (Diplom) |
-          Zertifizierte Projektmanagerin | Internationale Erfahrung (USA, EU, Osteuropa) |
-          Mitglied TMA USA | Ergebnisorientierte, umsetzungsstarke Implementierung |
-          Optimierung von Produktpalette, Kosten, ERP sowie Steigerung von Qualität,
-          Liefertreue und Profitabilität
+          zertifizierte Projektmanagerin | internationale Erfahrung (USA, EU, Osteuropa) |
+          Mitglied TMA USA | ergebnisorientierte, umsetzungsstarke Implementierung |
+          Optimierung von Produktpalette, Kosten und ERP sowie Steigerung von Qualität,
+          Liefertreue, Gewinn und Profitabilität.
         </p>
+
         <div class="pill-row">
           <span class="pill">Operational Excellence</span>
           <span class="pill">Digitalisierung &amp; ERP</span>
-          <span class="pill">SCM / Transformation</span>
+          <span class="pill">SCM / SCM Transformation</span>
           <span class="pill">Procurement / Einkauf</span>
-          <span class="pill">Optimierung der Wertschöpfungskette</span>
+          <span class="pill">Wertschöpfungskette</span>
           <span class="pill">Project Management</span>
           <span class="pill">Corporate Culture</span>
           <span class="pill">Turnaround</span>
@@ -373,17 +350,19 @@
         </div>
       </div>
 
-      <div class="logo-inline">
-        <img src="think_and_act_along_the_value_chain.jpeg" alt="Think &amp; Act Along the Value Chain logo">
+      <div class="logo-box">
+        <img src="think_and_act_along_the_value_chain.jpeg" alt="Think &amp; Act Along the Value Chain Logo">
       </div>
 
       <div class="photo-card">
-        <img src="Natalia pic.jpg" alt="Portrait of Natalia Lee">
+        <img src="Natalia pic.jpg" alt="Portrait Natalia Lee">
       </div>
     </section>
 
     <section class="layout">
+
       <div class="stack">
+
         <article class="card">
           <h2>Profil / Werdegang</h2>
           <ul class="lead">
@@ -429,9 +408,9 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>IST- &amp; SOLL-Analyse aller Unternehmensbereiche in Zusammenarbeit mit CFO &amp; Controlling zur Identifikation von Optimierungspotential</li>
+                <li>IST- &amp; SOLL-Analyse aller Unternehmensbereiche mit CFO &amp; Controlling zur Identifikation von Optimierungspotential</li>
                 <li>Prioritäten gesetzt und Quick Wins realisiert</li>
-                <li>Definition nachhaltiger Verbesserungen in Vertrieb, Einkauf, Produktion und an Schnittstellen zum ERP-System</li>
+                <li>Nachhaltige Verbesserungen in Vertrieb, Einkauf, Produktion und Schnittstellen zum ERP-System definiert</li>
                 <li>SCM-Prozesse klar festgelegt und gemeinsam mit dem Team vor Ort konsequent umgesetzt</li>
                 <li>Krisenmanagement → Transformation → Change Management</li>
               </ul>
@@ -448,9 +427,9 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Lieferantenauswahl für eine neue Technologie und eine nachhaltige, effiziente Partnerschaft</li>
+                <li>Lieferantenauswahl für neue Technologie und nachhaltige, effiziente Partnerschaft</li>
                 <li>Risk- und Potential-Management der neuen Technologie / Turnkey-Anlage</li>
-                <li>Etablierung und Steuerung von Vergabeprozessen für beste Ergebnisse in Qualität und Zahlen</li>
+                <li>Etablierung und Steuerung von Vergabeprozessen für beste Qualität und Zahlen</li>
                 <li>Technische und kaufmännische Bewertung</li>
               </ul>
             </div>
@@ -467,7 +446,7 @@
             <div class="project-content">
               <ul class="detail">
                 <li>Datenkonsolidierung für Einkaufsgesellschaft</li>
-                <li>Agglomeration des Einkaufsvolumens von mehreren Gesellschaften</li>
+                <li>Agglomeration des Einkaufsvolumens mehrerer Gesellschaften</li>
                 <li>Auswahl und Konfiguration einer Einkaufssoftware</li>
                 <li>Einkaufs- und SCM-Prozessoptimierung für die Gesellschaften</li>
                 <li>Strategische Beschaffung, Lieferantenmanagement und operativer Einkauf</li>
@@ -487,7 +466,7 @@
               <ul class="detail">
                 <li>Strategisches und operatives Lieferantenmanagement</li>
                 <li>„Idea to Market“, „Make or Buy“, SCM-Prozessoptimierung</li>
-                <li>Führen und Abschluss von Preis- und Vertragsverhandlungen mit Lieferanten</li>
+                <li>Preis- und Vertragsverhandlungen mit Lieferanten geführt und abgeschlossen</li>
                 <li>Lieferkette sichergestellt</li>
               </ul>
             </div>
@@ -524,7 +503,7 @@
                 <li>IST-SOLL-Analyse des Ersatzteilmanagements und der Verbrauchsmaterialien</li>
                 <li>Identifikation verbesserungsfähiger Bereiche</li>
                 <li>Projektion der P&amp;L-Auswirkung</li>
-                <li>Entwicklung einer Optimierungs-Roadmap mit Arbeitspaketen, Timeline sowie notwendigen internen und externen Ressourcen</li>
+                <li>Optimierungs-Roadmap mit Arbeitspaketen, Timeline und internen / externen Ressourcen entwickelt</li>
               </ul>
             </div>
           </div>
@@ -542,7 +521,7 @@
                 <li>Aufbau CRM und Integration in das ERP-System</li>
                 <li>Optimierung der Prozesse im Vertrieb und SCM</li>
                 <li>Working Capital Optimierung</li>
-                <li>Entwicklung von prozessorientierten KPIs</li>
+                <li>Entwicklung prozessorientierter KPIs</li>
               </ul>
             </div>
           </div>
@@ -559,7 +538,7 @@
               <ul class="detail">
                 <li>Optimierung der Prozessabläufe im Einkauf</li>
                 <li>Erfassung und Auswertung von Daten für Lieferantenaudits</li>
-                <li>Beratung und Projektmanagement für Wertschöpfungsprozesse, insbesondere im Vertrieb</li>
+                <li>Beratung und Projektmanagement für Wertschöpfungsprozesse, insbesondere Vertrieb</li>
                 <li>Kommunikationsverbesserung zwischen Vertrieb, Einkauf, Planung, Engineering, Logistik und Produktion</li>
               </ul>
             </div>
@@ -576,7 +555,7 @@
             <div class="project-content">
               <ul class="detail">
                 <li>Key Account Management, Krisenmanagement und Projektmanagementaudit</li>
-                <li>Erfolgreiche Krisenkommunikation mit dem Kunden im Hinblick auf das gemeinsame Referenzprojekt</li>
+                <li>Erfolgreiche Krisenkommunikation mit dem Kunden im Referenzprojekt</li>
                 <li>Identifizierung von Verbesserungspotential für die Projektleitung im Unternehmen</li>
               </ul>
             </div>
@@ -609,13 +588,13 @@
             <div class="project-content">
               <ul class="detail">
                 <li>Prozessanalyse und Prozessoptimierung entlang der Wertschöpfungskette</li>
-                <li>Feststellen von Lücken und Schnittstellenoptimierung</li>
+                <li>Lückenanalyse und Schnittstellenoptimierung</li>
                 <li>Risikoanalyse aller bestehenden Projekte im Unternehmen</li>
                 <li>Definition von Projektertragszielen und Zielevaluation</li>
-                <li>Festlegen sofort realisierbarer Maßnahmen</li>
-                <li>Teamwork und Integration mit Engineering, Controlling, Einkauf, Produktion und Vertrieb</li>
+                <li>Sofort realisierbare Maßnahmen festgelegt</li>
+                <li>Integration mit Engineering, Controlling, Einkauf, Produktion und Vertrieb</li>
                 <li>ERP-Optimierung</li>
-                <li>Projektmanagement für eine komplexe R&amp;D-Maschine</li>
+                <li>Projektmanagement für komplexe R&amp;D-Maschine</li>
                 <li>Strategisches Teamcoaching und Managementberatung</li>
               </ul>
             </div>
@@ -631,13 +610,13 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Gesamtprojektsteuerung für die Errichtung eines neuen Produktionsstandortes inklusive Produktionsanlagen</li>
+                <li>Gesamtprojektsteuerung für neuen Produktionsstandort inklusive Produktionsanlagen</li>
                 <li>Optimierung bestehender Anlagen</li>
                 <li>Klärung technischer Spezifikationen und Anforderungen mit Lieferanten</li>
-                <li>Zieldefinition für eine nachhaltige, kosteneffiziente Engineering-Lösung</li>
+                <li>Zieldefinition für nachhaltige, kosteneffiziente Engineering-Lösung</li>
                 <li>Vorbereitung der Ausschreibungsverfahren</li>
                 <li>Lieferantenauswahl anhand technischer Spezifikationen</li>
-                <li>Führung der zuständigen Projektingenieure für Teilprojekte</li>
+                <li>Führung zuständiger Projektingenieure für Teilprojekte</li>
                 <li>Investitionsplanung, Budgeterstellung und Budgetkontrolle</li>
               </ul>
             </div>
@@ -653,13 +632,13 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Projektmanagement für eine Turnkey-Anlage zur Erzeugung von Molkereiprodukten</li>
-                <li>Technologieinnovation mit einem Projektvolumen von 30 Mio. EUR</li>
+                <li>Projektmanagement für Turnkey-Anlage zur Erzeugung von Molkereiprodukten</li>
+                <li>Technologieinnovation mit 30 Mio. EUR Projektvolumen</li>
                 <li>Klärung technischer Spezifikationen und Anforderungen</li>
                 <li>Lieferantenauswahl</li>
                 <li>Zieldefinition für nachhaltige, kosteneffiziente Engineering-Lösung</li>
-                <li>Leitung der technologischen Integration der einzelnen Anlagenbestandteile</li>
-                <li>Federführende Verhandlungen mit dem Kunden zu technischen und kaufmännischen Fragen sowie Projektverträgen</li>
+                <li>Leitung der technologischen Integration einzelner Anlagenbestandteile</li>
+                <li>Federführende Kundenverhandlungen zu technischen, kaufmännischen und vertraglichen Fragen</li>
                 <li>Leitung des On-Site Managements und der Installation vor Ort</li>
               </ul>
             </div>
@@ -676,8 +655,8 @@
             <div class="project-content">
               <ul class="detail">
                 <li>Umfangreiche Marktanalysen für die Produktion unterschiedlicher Ölvarianten</li>
-                <li>Technische Analysen für verschiedene Produktionskonzepte und Produktionsanlagen</li>
-                <li>Investitions- und Wirtschaftlichkeitsanalyse unterschiedlicher Produktionsprozesse und Anlagen</li>
+                <li>Technische Analysen für Produktionskonzepte und Produktionsanlagen</li>
+                <li>Investitions- und Wirtschaftlichkeitsanalyse von Produktionsprozessen und Anlagen</li>
                 <li>Beschaffung einer Produktionsanlage für Sonnenblumenöl</li>
                 <li>Akquise und Gewinnung erster Kunden</li>
               </ul>
@@ -695,9 +674,9 @@
             <div class="project-content">
               <ul class="detail">
                 <li>Beschaffung von Senfsaat innerhalb des vorgegebenen Preis- und Volumenkorridors</li>
-                <li>Marktanalysen und Entwicklung einer Beschaffungsstrategie für den russischen und ukrainischen Agrarmarkt</li>
-                <li>Vernetzung mit hochrangigen Beamten im ukrainischen Agrarministerium und in der Agrarwirtschaft</li>
-                <li>Führen und Abschluss von Preis- und Vertragsverhandlungen mit Lieferanten und Produzenten</li>
+                <li>Marktanalysen und Beschaffungsstrategie für russischen und ukrainischen Agrarmarkt</li>
+                <li>Vernetzung mit hochrangigen Beamten im ukrainischen Agrarministerium und der Agrarwirtschaft</li>
+                <li>Preis- und Vertragsverhandlungen mit Lieferanten und Produzenten geführt und abgeschlossen</li>
                 <li>Steuerung der Logistikprozesse für die Anlieferung von Senfsaat</li>
               </ul>
             </div>
@@ -715,9 +694,9 @@
                 <li>Interims Geschäftsführerin für Polymagnet GmbH</li>
                 <li>M&amp;A / Turnaround</li>
                 <li>Initiierung und Leitung eines Kundenrückgewinnungsprogramms</li>
-                <li>Definition der Rahmenbedingungen und Ressourcen für die Entwicklung eines neuartigen Magneten</li>
-                <li>Umsetzung wesentlicher Kosteneinsparungen</li>
-                <li>Steuerung aller schwebenden Rechtsfälle mit Ziel einer gütlichen Einigung / eines Vergleichs</li>
+                <li>Rahmenbedingungen und Ressourcen für neuartigen Magneten definiert</li>
+                <li>Wesentliche Kosteneinsparungen umgesetzt</li>
+                <li>Schwebende Rechtsfälle mit Ziel gütlicher Einigung / Vergleich gesteuert</li>
                 <li>Organisation und Koordination eines Lieferantenaudits</li>
                 <li>Organisation des Umzugs der Firmenzentrale nach Regensburg</li>
               </ul>
@@ -733,10 +712,10 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Lieferantenaudits für die Beschaffung einer CO2-Rückgewinnungsanlage</li>
-                <li>Analyse und Vergleich von Angeboten hinsichtlich Prozessoptimierung, energetischer Nachhaltigkeit, Qualität, Preis-Leistungs-Verhältnis, Liefer- und Installationsbedingungen</li>
-                <li>Durchführung und Abschluss der Vertragsverhandlungen</li>
-                <li>Erstellung einer detaillierten und umfangreichen Projektdokumentation</li>
+                <li>Lieferantenaudits für CO2-Rückgewinnungsanlage</li>
+                <li>Angebotsanalyse hinsichtlich Prozessoptimierung, energetischer Nachhaltigkeit, Qualität, Preis-Leistung, Liefer- und Installationsbedingungen</li>
+                <li>Vertragsverhandlungen durchgeführt und abgeschlossen</li>
+                <li>Detaillierte und umfangreiche Projektdokumentation erstellt</li>
               </ul>
             </div>
           </div>
@@ -766,14 +745,14 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Federführende Projektsteuerung und Projektleitung für schlüsselfertige Anlagen und Greenfield-Projekte bis 36 Mio. EUR Auftragswert</li>
+                <li>Federführende Projektsteuerung und Projektleitung für schlüsselfertige Anlagen und Greenfield-Projekte bis 36 Mio. EUR</li>
                 <li>Verantwortung von technischer Anforderungsdefinition über Angebotserstellung bis Abnahme vor Ort</li>
                 <li>Prozessoptimierungen und Problemlösungen während der gesamten Projektdauer</li>
                 <li>Zusammenarbeit mit F&amp;E und OEM</li>
-                <li>Erstellung und flexible Anpassung des Projektzeitplans</li>
-                <li>Koordination der Installation vor Ort</li>
-                <li>Umsetzung einer detaillierten Einführungsstrategie</li>
-                <li>Betreuung der Key Accounts: PepsiCo, Unilever und Clorox</li>
+                <li>Projektzeitplan erstellt und flexibel angepasst</li>
+                <li>Installation vor Ort koordiniert</li>
+                <li>Detaillierte Einführungsstrategie umgesetzt</li>
+                <li>Key Accounts: PepsiCo, Unilever, Clorox</li>
               </ul>
             </div>
           </div>
@@ -788,11 +767,11 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Erarbeitung und Vorstellung von Gesamtlösungen für Abfüll- und Verpackungsanlagen</li>
+                <li>Gesamtlösungen für Abfüll- und Verpackungsanlagen erarbeitet und vorgestellt</li>
                 <li>Projektleitung und Projektsteuerung vom Auftragseingang bis zur Kundenabnahme</li>
                 <li>Projektcontrolling von Kosten, Ressourcen und Terminen</li>
-                <li>Verantwortlicher Ansprechpartner und Berater für Kunden in technischen Fragen</li>
-                <li>Betreuung der Key Accounts: Coca-Cola, Pepsi, Molson, Global Beverage, Kendall Jackson</li>
+                <li>Verantwortlicher Ansprechpartner und technischer Berater für Kunden</li>
+                <li>Key Accounts: Coca-Cola, Pepsi, Molson, Global Beverage, Kendall Jackson</li>
               </ul>
             </div>
           </div>
@@ -808,9 +787,9 @@
               <ul class="detail">
                 <li>Effizienzanalyse für neue Automatisierungssysteme</li>
                 <li>Bewertung der Auslastung bestehender Anlagen</li>
-                <li>Erarbeitung und Optimierung eines neuen Produktionsablaufs</li>
+                <li>Neuen Produktionsablauf erarbeitet und optimiert</li>
                 <li>Produktivitätssteigerung um 32%</li>
-                <li>Einkauf und Implementierung des neuen Automatisierungssystems</li>
+                <li>Neues Automatisierungssystem eingekauft und implementiert</li>
               </ul>
             </div>
           </div>
@@ -824,9 +803,9 @@
             </button>
             <div class="project-content">
               <ul class="detail">
-                <li>Erschließung neuer Möglichkeiten zur Produktivitätssteigerung bei einer neuen LKW-Fertigungsstraße</li>
-                <li>Optimierung des Zeitmanagements für einzelne Segmente der Fertigungsstraße</li>
-                <li>Einführung der KAIZEN-Systeme in Zusammenarbeit mit einem japanischen Consulting-Unternehmen</li>
+                <li>Neue Möglichkeiten zur Produktivitätssteigerung bei LKW-Fertigungsstraße erschlossen</li>
+                <li>Zeitmanagement einzelner Segmente optimiert</li>
+                <li>KAIZEN-Systeme mit japanischem Consulting-Unternehmen eingeführt</li>
                 <li>Produktivitätssteigerung der Fertigungsstraße um 50%</li>
               </ul>
             </div>
